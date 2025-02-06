@@ -1,0 +1,122 @@
+GRAY_RouletteManager {
+ ID "6328BC679A6FCBAD"
+ coords 0 0 0
+ m_maxBuildingCount 9999
+ m_buildingBlackListKeyword {
+  "Greenhouse" "Pier" "Wall" "Calvary" "HouseRuin" "Hotbed" "Bollard" "Grave"
+ }
+ m_teamsList {
+  GRAY_RouletteTeamData "{648707BFE1DAFA78}" {
+   name "USMC"
+   factionKey "RHS_USAF"
+   scopeType Some
+   platoonsPerCompany 0
+   squadsPerPlatoon 0
+   companies {
+    GRAY_RouletteCompany "{6489790DC7266F0E}" {
+     prefab "{67336FD6DD4A5ECB}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleCHQ_P.et"
+     playerCount 5
+     platoons {
+      GRAY_RoulettePlatoon "{6489790DC8437DCA}" {
+       prefab "{FDE56D3C8960042A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RiflePHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{648979041F340773}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{6489790460DF692F}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{648C38AB8BD9840A}" {
+       prefab "{FDE56D3C8960042A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RiflePHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{648979041F340773}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{6489790460DF692F}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{648C38AB94B4D224}" {
+       prefab "{FDE56D3C8960042A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RiflePHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{648979041F340773}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{6489790460DF692F}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  GRAY_RouletteTeamData "{648707BFE050A5CD}" {
+   name "USMC"
+   factionKey "RHS_USAF"
+   scopeType Some
+   companies {
+    GRAY_RouletteCompany "{6489790DC7266F0E}" {
+     prefab "{67336FD6DD4A5ECB}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleCHQ_P.et"
+     playerCount 5
+     platoons {
+      GRAY_RoulettePlatoon "{6489790DC8437DCA}" {
+       prefab "{FDE56D3C8960042A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RiflePHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{648979041F340773}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{6489790460DF692F}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{648C38AB8BD9840A}" {
+       prefab "{FDE56D3C8960042A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RiflePHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{648979041F340773}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{6489790460DF692F}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{648C38AB94B4D224}" {
+       prefab "{FDE56D3C8960042A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RiflePHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{648979041F340773}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{6489790460DF692F}" {
+         prefab "{BAF825F0FE20A92A}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

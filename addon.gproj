@@ -1,0 +1,8 @@
+GameProject {
+ ID "Burn0ut7sMissions"
+ GUID "62E5274DF861DEB9"
+ TITLE "Burn0ut7sMissions"
+ Dependencies {
+  "623555110E2B2CA0" "58D0FB3206B6F859"
+ }
+}

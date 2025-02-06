@@ -1,0 +1,7 @@
+TILW_FactionTriggerEntity : "{8C576D46F6579229}Prefabs/Logic/TILW_FactionTrigger.et" {
+ ID "61F339AC7B7B5324"
+ coords 4878.436 28.495 10601.586
+ m_queryPeriod 1
+ m_captureIterations 300
+ m_sendStatusMessages 1
+}

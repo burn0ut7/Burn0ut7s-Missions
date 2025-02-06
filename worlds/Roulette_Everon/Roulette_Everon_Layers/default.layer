@@ -1,0 +1,29 @@
+SCR_AIWorld : "{70CCCF16487C927F}Prefabs/AI/SCR_AIWorld_Eden.et" {
+ coords 4868.474 29.634 10603.566
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 4868.023 28.895 10599.942
+}
+PS_GameModeCoop PS_GameMode_Lobby_TILWMF1 : "{4CFD54745CD45673}Prefabs/MP/Modes/PS_GameMode_Lobby_TILWMF.et" {
+ coords 4877.221 28.583 10599.563
+ {
+  SCR_FactionManager "632E4DCFA68EAEC7" {
+   ID "5ED9088735FF2D8B"
+   Factions {
+    SCR_Faction "{5978B9CE6585BBE8}" {
+     m_CallsignInfo SCR_FactionCallsignInfo "{5977478D568C093C}" {
+      m_bIsAssignedRandomly 0
+      m_iCompanyOverflowIndex 8
+     }
+    }
+   }
+  }
+  GRAY_RouletteManager : "{EEA6970394AE8F42}Prefabs/Roulette/Roulette_Manager.et" {
+   coords 0 0 0
+  }
+ }
+}
+TILW_MissionFrameworkEntity : "{8F846D0FD5D6EA51}Prefabs/MP/TILW_MissionFramework.et" {
+ coords 4874.521 28.582 10600.108
+ m_suppressGameEnd 1
+}

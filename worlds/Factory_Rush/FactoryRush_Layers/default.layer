@@ -1,0 +1,205 @@
+SCR_AIWorld : "{70CCCF16487C927F}Prefabs/AI/SCR_AIWorld_Eden.et" {
+ coords 4760.513 28.531 11570.604
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 4771.662 28.531 11570.842
+}
+PS_GameModeCoop PS_GameMode_Lobby_TILWMF1 : "{4CFD54745CD45673}Prefabs/MP/Modes/PS_GameMode_Lobby_TILWMF.et" {
+ components {
+  SCR_TimeAndWeatherHandlerComponent "{5EE3229927D4D2F5}" {
+   m_iStartingHours 19
+  }
+ }
+ coords 4771.973 28.531 11569.956
+ m_iFreezeTime 70000
+ {
+  SCR_FactionManager "62E49269DACAFFC2" {
+   ID "5ED9088735FF2D8B"
+   coords 0 0 0
+   Factions {
+    SCR_Faction "{5978B9CE6585BBE8}" {
+     UIInfo SCR_FactionUIInfo "{5977478D568C0938}" {
+      Name "OPFOR"
+      m_sNameUpper "OPFOR"
+     }
+    }
+    SCR_Faction "{5CC8DE37E1FF0F7A}" {
+     UIInfo SCR_FactionUIInfo "{5CC8B5EDA0CDBD62}" {
+      Name "BLUFOR"
+      m_sNameUpper "BLUFOR"
+     }
+    }
+   }
+  }
+  ItemPreviewManagerEntity "63233AF0AAB99B69" {
+   ID "5ED9088735FF2DD5"
+   coords -12.245 1 -7.529
+  }
+  SCR_EditorSettingsEntity {
+   ID "61B4E967E6C20362"
+   coords 0 0 0
+  }
+ }
+}
+SCR_AIGroup : "{11C0183AB214797E}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P/Group_USMC_2020_RifleSquad_P.et" {
+ coords 5284.266 39.525 11391.897
+ angleY 270
+ m_aUnitPrefabSlots {
+  "{B77C94F57C993C1A}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_CO_P.et" "{14AE33B067DA3083}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_SquadLeader_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{776F5E9622D58CC2}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_TeamLeader_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{776F5E9622D58CC2}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_TeamLeader_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et"
+ }
+}
+PolylineShapeEntity : "{25C6E66E6C14258D}Prefabs/Logic/CoverMap/Cover_Map.et" {
+ coords 5036.805 37.034 11064.856
+ Points {
+  ShapePoint "{64734A228E1CAE52}" {
+   Position -974.138 0 1371.378
+  }
+  ShapePoint "{64734A229314BB4C}" {
+   Position -832.658 0 -22.287
+  }
+  ShapePoint "{64734A22922B23A6}" {
+   Position 696.567 0 -192.653
+  }
+  ShapePoint "{64734A229537DD38}" {
+   Position 641.669 0 1339.134
+  }
+ }
+}
+$grp PS_MissionDescription : "{3136BE42592F3B1B}PrefabsEditable/MissionDescription/EditableMissionDescription.et" {
+ {
+  coords 4761.84 28.469 11544.51
+  m_sTitle "Overview"
+  m_sTextData "A small terriost cell is occupying several buildings near the North airport. The Blufor team has staged directly outside the perimeter and is standing by to breach!"\
+  ""\
+  "Ratio  2 : 1"
+  m_bEmptyFactionVisibility 1
+ }
+ {
+  coords 4759.17 28.469 11534.875
+  m_sTitle "Mission"
+  m_sTextData "Defend our base of operations. Kill all attackers."\
+  ""\
+  "We expect a unkown force to breach any minute."
+  m_aVisibleForFactions {
+   "RHS_AFRF"
+  }
+ }
+ {
+  coords 4758.125 28.437 11525.318
+  m_sTitle "Mission"
+  m_sTextData "Breach and clear out the terriost cell base of operations. We are currently located to the East in Les Creux."
+  m_aVisibleForFactions {
+   "RHS_USAF"
+  }
+ }
+}
+SCR_AIGroup : "{4612288297E3FCAC}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleSquad_P.et" {
+ coords 4838.31 27.469 11575.324
+ m_aUnitPrefabSlots {
+  "{476C3ECD07249865}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Leader_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et"
+ }
+}
+$grp SCR_EditorRestrictionZoneEntity : "{6144B0BE2EAC6897}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneMedium.et" {
+ {
+  coords 5304.526 36.618 11381.455
+  m_fWarnRadius 25
+  m_fZoneRadius 9999
+  m_fZoneTeleportedRadius 25
+ }
+ {
+  coords 4828.758 27.469 11571.677
+  m_fWarnRadius 35
+  m_fZoneRadius 9999
+  m_fZoneTeleportedRadius 35
+ }
+}
+PolylineShapeEntity OPFOR : "{85222A2744768C81}Prefabs/Logic/AOLimit/TILW_AOLimit.et" {
+ components {
+  TILW_AOLimitComponent "{6217617AC21DEB7B}" {
+   m_factionKeys {
+    "RHS_AFRF"
+   }
+  }
+ }
+ coords 4829.653 28 11574.558
+ Points {
+  ShapePoint "{62E4926C6465B299}" {
+   Position -37 0.573 -37.006
+  }
+  ShapePoint "{62E4926C60179E5D}" {
+   Position -37 0.667 29
+  }
+  ShapePoint "{62E4926C6C4D7769}" {
+   Position 35 0 27
+  }
+  ShapePoint "{62E4926C68EC0BB4}" {
+   Position 35 0 -35
+  }
+ }
+}
+PS_ManuaMarkerRender : "{88D799C5DED9EC70}PrefabsEditable/Markers/EditableMarkerRender.et" {
+ coords 4817.577 94.537 11572.466
+ angleX -90
+ m_bVisibleForEmptyFaction 1
+ m_aHideOnGameModeStates {
+  1
+ }
+ m_iZOrder 10
+ m_bShowForAnyFaction 1
+}
+TILW_MissionFrameworkEntity : "{8F846D0FD5D6EA51}Prefabs/MP/TILW_MissionFramework.et" {
+ coords 4770.203 28.237 11569.508
+ m_missionEvents {
+  TILW_MissionEvent "{62E4926581B22B35}" {
+   m_instructions {
+    TILW_EndGameInstruction "{62E492657AD9DC63}" {
+     m_factionKey "RHS_AFRF"
+    }
+   }
+   m_condition TILW_LiteralTerm "{62E49265775B53D0}" {
+    m_flagName "Blurfor_KIA"
+   }
+  }
+  TILW_MissionEvent "{62E4F1112D8A8CC7}" {
+   m_instructions {
+    TILW_EndGameInstruction "{62E4F11117DFB5CE}" {
+     m_factionKey "RHS_USAF"
+    }
+   }
+   m_condition TILW_LiteralTerm "{62E4F11128EBF034}" {
+    m_flagName "Opfor_KIA"
+   }
+  }
+ }
+ m_factionPlayersKilledFlags {
+  TILW_FactionPlayersKilledFlag "{62E49265AFA42095}" {
+   m_flagName "Blurfor_KIA"
+   m_factionKey "RHS_USAF"
+  }
+  TILW_FactionPlayersKilledFlag "{62E4F111579289C5}" {
+   m_flagName "Opfor_KIA"
+   m_factionKey "RHS_AFRF"
+  }
+ }
+}
+$grp PS_ManualMarker : "{CD85ADE9E0F54679}PrefabsEditable/Markers/EditableMarker.et" {
+ {
+  coords 5301.293 39.53 11382.395
+  m_sImageSet "{1228936E5DB30403}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor.imageset"
+  m_sImageSetGlow "{D1BFDF90DD7A4E01}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor-outline.imageset"
+  m_sQuadName "undefined"
+  m_bVisibleForEmptyFaction 1
+  m_iZOrder 1
+  m_bShowForAnyFaction 1
+ }
+ {
+  coords 4828.805 39.595 11571.43
+  angleY 0
+  m_sImageSet "{7CD99D22C7AE8195}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor.imageset"
+  m_sImageSetGlow "{B9356E7B2E974DCD}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor-outline.imageset"
+  m_sQuadName "undefined"
+  m_bVisibleForEmptyFaction 1
+  m_iZOrder 1
+  m_bShowForAnyFaction 1
+ }
+}

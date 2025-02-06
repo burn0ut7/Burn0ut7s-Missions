@@ -1,0 +1,8 @@
+GRAY_MissionDescription : "{3136BE42592F3B1B}PrefabsEditable/MissionDescription/EditableMissionDescription.et" {
+ ID "5EE5412841301198"
+ coords 4880.627 28.584 10600.15
+ m_sTitle "Briefing: Situation."
+ m_sTextData ""
+ m_aVisibleForFactions {
+ }
+}
