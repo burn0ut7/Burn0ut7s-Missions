@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{D6B6ABBF177DBC9E}Prefabs/Roulette/Marker_Defender.et"
+ Name "{A00C4A23CD89F76E}Prefabs/Roulette/Roulette_GameMode_Company.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

@@ -23,7 +23,7 @@ class GRAY_RouletteAD
 		
 		// Find defender spawn
 		vector defenderSpawn;
-		bool defenderSpawnFound = FindSpawn(defenderSpawn, objectivePosition, 0, rouletteManager.m_aoLimitWidth - 50);
+		bool defenderSpawnFound = FindSpawn(defenderSpawn, objectivePosition, 0, rouletteManager.m_aoLimitWidth / 2 - 50);
 		if(!defenderSpawnFound)
 			return Scenario();
 		
@@ -33,18 +33,28 @@ class GRAY_RouletteAD
 		if(!attackerSpawnFound)
 			return Scenario();
 		
-		// Setup Briefing
-		SetupBriefing(teams[0], teams[1]);
+		// Spawn teams
+		map<string, int> defenderCounts;
+		int defenderRatio = rouletteManager.m_minPlayerCount / (1 + rouletteManager.m_ratio);
+		int defenderCount = rouletteManager.SpawnTeam(defenderCounts, teams[0], defenderSpawn, defenderRatio, defenderRatio);
+		Print("GRAY_RouletteAD.Scenario defenderCount = "+ defenderCount);
 		
-		// Setup Gamemode
-		SetupGamemode(teams[0], teams[1]);
+		map<string, int> attackerCounts;
+		int attackerRatio = defenderRatio * rouletteManager.m_ratio;
+		int attackerCount = rouletteManager.SpawnTeam(attackerCounts, teams[1], attackerSpawn, attackerRatio, attackerRatio - 5);
+		Print("GRAY_RouletteAD.Scenario attackerCount = "+ attackerCount);
+		
+		// Setup Briefing
+		SetupBriefing(teams[0], defenderCounts, teams[1], attackerCounts);
 		
 		// Setup AO Limit
 		rouletteManager.SetupAOLimit(objectivePosition, attackerSpawn, rouletteManager.m_aoLimitWidth);
 		
+		// Setup Markers
 		SetupMarkers(defenderSpawn, attackerSpawn, objectivePosition, objectiveSize);
 		
-		rouletteManager.SpawnTeam(teams[0], defenderSpawn, 13, 50);
+		// Setup Gamemode
+		SetupGamemode(teams[0], teams[1]);
 	}
 	
 	
@@ -82,28 +92,50 @@ class GRAY_RouletteAD
 		return true;
 	}
 	
-	void SetupBriefing(GRAY_RouletteTeamData defendingTeam, GRAY_RouletteTeamData attackingTeam)
+	void SetupBriefing(GRAY_RouletteTeamData defendingTeam, map<string, int> defenderCounts, GRAY_RouletteTeamData attackingTeam, map<string, int> attackerCounts)
 	{
-		// Notes
-		string description = "Blufor(attackers) are the " + defendingTeam.GetName() + ".\nOpfor(defenders) are the " + defendingTeam.GetName() + ".\n\nVI. End Conditions:\nTime Limit - 70 minutes\nBlufor Win - Capture Marked objective(red circle)\nLoss - 100 Percent player casualties\n\nm_ratio 2 : 1";
-		rouletteManager.SpawnBriefing("Briefing: Notes", description);
+		array<string> keys = {"squad", "platoon", "company"};
+		string elementDefender = "";
+		foreach(string key : keys)
+		{
+			int count = defenderCounts.Get(key);
+			if(count == 0)
+				continue;
+			
+			elementDefender = string.Format("%1x %2 %3", count, defendingTeam.GetName(), key);
+		}
 		
-		// Defender Situation
-		description = "I. Situation:\nEveron, 2020.\nLocal Time: Day\nWeather: Clear\n\nIa. Friendly Forces:\n1x " + attackingTeam.GetName() + " platoon. (Marked)\n\nIb. Enemy Forces:\n1x Platoon of " + defendingTeam.GetName() + " (Marked)";
-		rouletteManager.SpawnBriefing("Briefing: Situation", description, defendingTeam, 2);
+		string elementAttacker = "";
+		foreach(string key : keys)
+		{
+			int count = attackerCounts.Get(key);
+			if(count == 0)
+				continue;
+			
+			elementAttacker = string.Format("%1x %2 %3", count, attackingTeam.GetName(), key);
+		}
 		
-		// Defender Mission
-		description = "II. Mission:\nOur platoon is to DEFEND the strategic building marked with a red circle.\nIII. Execution:\nAs per CO's intent.\n\nIV. Command/Signals:\nPlatoon HQ - 10\n1st Squad - 11\n2nd Squad - 12\n3rd Squad - 13\n4th Squad - 14\n\nV. Service/Support:\nNo Coy/Btn Fire Support.\nNo Resupply.";
-		rouletteManager.SpawnBriefing("Briefing: Mission", description, defendingTeam, 3);
-		
+		foreach(GRAY_RouletteBriefingData briefing : rouletteManager.m_breifings)
+		{
+			string description = string.Format(briefing.GetDescription(), defendingTeam.GetName(), attackingTeam.GetName(), elementDefender, elementAttacker);
 
-		// Attacker Situation
-		description = "I. Situation:\nEveron, 2020.\nLocal Time: Day\nWeather: Clear\n\nIa. Friendly Forces:\n1x " + defendingTeam.GetName() + " platoon. (Marked)\n\nIb. Enemy Forces:\n1x Platoon of " + attackingTeam.GetName() + " (Marked)";
-		rouletteManager.SpawnBriefing("Briefing: Situation", description, attackingTeam, 2);
-		
-		// Attacker Mission
-		description = "II. Mission:\nOur platoon is to CAPTURE the strategic building marked with a red circle.\nIII. Execution:\nAs per CO's intent.\n\nIV. Command/Signals:\nPlatoon HQ - 10\n1st Squad - 11\n2nd Squad - 12\n3rd Squad - 13\n4th Squad - 14\n\nV. Service/Support:\nNo Coy/Btn Fire Support.\nNo Resupply.";
-		rouletteManager.SpawnBriefing("Briefing: Mission", description, attackingTeam, 3);
+			switch (briefing.GetSide())
+	        {
+	            case GRAY_eBriefingType.Defender:
+					GRAY_MissionDescription entity = rouletteManager.SpawnBriefing(briefing.GetTitle(), description, 2);
+					entity.SetVisibleForFactionKey(defendingTeam.GetFaction(), true);
+					break;
+	            case GRAY_eBriefingType.Attacker:
+	                GRAY_MissionDescription entity = rouletteManager.SpawnBriefing(briefing.GetTitle(), description, 2);
+					entity.SetVisibleForFactionKey(attackingTeam.GetFaction(), true);
+					break;
+	            default:
+	                GRAY_MissionDescription entity = rouletteManager.SpawnBriefing(briefing.GetTitle(), description);
+					entity.SetVisibleForEmptyFaction(true);
+					entity.SetShowAnyFaction(true);
+					break;
+	        }
+		}
 	}
 	
 	void SetupGamemode(GRAY_RouletteTeamData defendingTeam, GRAY_RouletteTeamData attackingTeam)
@@ -192,19 +224,92 @@ class GRAY_RouletteAD
 	void SetupMarkers(vector defenderSpawn, vector attackerSpawn, vector objective, float size)
 	{
 		// Objective
-		rouletteManager.SpawnMarker(objective, "{E23427CAC80DA8B7}UI/Textures/Icons/icons_mapMarkersUI.imageset", "circle-2", string.Empty, size * 2, Color.Red);
-		
+		PS_ManualMarker marker = rouletteManager.SpawnMarker(objective, "{E23427CAC80DA8B7}UI/Textures/Icons/icons_mapMarkersUI.imageset", "circle-2");
+		marker.SetSize(size * 2);
+		marker.SetColor(Color.Red);
+
 		// Spawns
 		FactionManager fm = GetGame().GetFactionManager();
 		
 		// Defenders
 		SCR_Faction defenders = SCR_Faction.Cast(fm.GetFactionByKey(teams[0].GetFaction()));
-		PS_ManualMarker marker = rouletteManager.SpawnMarker(defenderSpawn, defenders.GetFactionFlag(), "", teams[0].GetName(), 40, Color.White, false);
-		marker.SetAngles(Vector(0, 90, 0));
+		marker = rouletteManager.SpawnMarker(defenderSpawn, defenders.GetFactionFlag(), "", false);
+		marker.SetAngles({0, 90, 0});
+		marker.SetSize(40);
 		
 		// Attackers
 		SCR_Faction attackers = SCR_Faction.Cast(fm.GetFactionByKey(teams[1].GetFaction()));
-		marker = rouletteManager.SpawnMarker(attackerSpawn, attackers.GetFactionFlag(), "", teams[1].GetName(), 40, Color.White, false);
+		marker = rouletteManager.SpawnMarker(attackerSpawn, attackers.GetFactionFlag(), "", false);
 		marker.SetAngles(Vector(0, 90, 0));
+		marker.SetSize(40);
+	}
+}
+
+modded class SCR_AIGroup
+{
+	string m_customCallsign = string.Empty;
+	
+	override void GetCallsigns(out string company, out string platoon, out string squad, out string character, out string format)
+	{
+		if(m_customCallsign != string.Empty)
+		{
+			format = m_customCallsign;	
+			return;
+		}
+		
+		super.GetCallsigns(company, platoon, squad, character, format);
+	}
+}
+
+modded class PS_PlayableManager
+{	
+	override void RegisterPlayable(PS_PlayableComponent playableComponent)
+	{
+		//PrintFormat("RegisterPlayable - %1", playableComponent.GetOwner());
+		
+		RplId playableId = playableComponent.GetId();
+		if (m_aPlayables.Contains(playableId))
+			return;
+		m_aPlayables[playableId] = playableComponent;
+		
+		GetGame().GetCallqueue().Call(OnPlayableRegisteredLateInvoke, playableId, playableComponent);
+		GetGame().GetCallqueue().Remove(UpdatePlayablesSortedWrap);
+		GetGame().GetCallqueue().Remove(UpdatePlayablesSorted);
+		GetGame().GetCallqueue().Call(UpdatePlayablesSortedWrap);
+		
+		if (Replication.IsServer())
+		{
+			SCR_ChimeraCharacter playableCharacter = SCR_ChimeraCharacter.Cast(playableComponent.GetOwner());
+			AIControlComponent aiControl = AIControlComponent.Cast(playableCharacter.FindComponent(AIControlComponent));
+			SCR_AIGroup playableGroup =  SCR_AIGroup.Cast(aiControl.GetControlAIAgent().GetParentGroup());
+			SCR_AIGroup playerGroup;
+			
+			if (!playableGroup)
+				return;
+			
+			if (!playableGroup.IsSlave())
+			{
+				SCR_GroupsManagerComponent groupsManagerComponent = SCR_GroupsManagerComponent.GetInstance();
+				playerGroup = groupsManagerComponent.CreateNewPlayableGroup(playableGroup.GetFaction());
+				playerGroup.SetSlave(playableGroup);
+				playerGroup.SetMaxMembers(playableGroup.m_aUnitPrefabSlots.Count());
+				playerGroup.SetCustomName(playableGroup.GetCustomName(), -1);
+								
+				playableGroup.SetCanDeleteIfNoPlayer(false);
+				playerGroup.SetCanDeleteIfNoPlayer(false);
+				playableGroup.SetDeleteWhenEmpty(false);
+				playerGroup.SetDeleteWhenEmpty(false);
+			} else {
+				playerGroup = playableGroup.GetMaster();
+			}
+			
+			if(playableGroup.m_customCallsign != string.Empty)
+			{
+				playerGroup.m_customCallsign = playableGroup.m_customCallsign;
+			}
+			
+			SetPlayablePlayerGroupId(playableId, playerGroup.GetGroupID());
+			GetGame().GetCallqueue().CallLater(UpdateGroupCallsigne, 0, false, playableId, playerGroup, playableGroup)
+		}
 	}
 }

@@ -13,7 +13,7 @@ class GRAY_MissionDescription : PS_MissionDescription
 	
 	void SetShowAnyFaction(bool show)
 	{
-		RPC_SetOrder(show);
+		RPC_SetShowAnyFaction(show);
 		Rpc(RPC_SetShowAnyFaction, show);
 	}
 	

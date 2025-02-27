@@ -28,6 +28,9 @@ class GRAY_RouletteManager : GenericEntity
 	[Attribute(defvalue: "1000", uiwidget: UIWidgets.EditBox, desc: "The width of the AO limit", category: "Attack and Defend")]
     int m_aoLimitWidth;
 	
+	[Attribute(defvalue: "", UIWidgets.Object, category: "Attack and Defend")]
+    ref array<ref GRAY_RouletteBriefingData> m_breifings;
+	
 	[Attribute(defvalue: "1500", uiwidget: UIWidgets.EditBox, desc: "The minimum length of the AO limit", category: "Attack and Defend")]
     int m_minAoLimitLength;
 	
@@ -37,7 +40,7 @@ class GRAY_RouletteManager : GenericEntity
 	[Attribute(defvalue: "3", uiwidget: UIWidgets.EditBox, desc: "The minimum amount of buildings needed nearby", category: "Attack and Defend")]
     int m_minBuildingCount;
 	
-	[Attribute(defvalue: "10", uiwidget: UIWidgets.EditBox, desc: "The maximum amount of buildings to consider when creating the objective size", category: "Attack and Defend")]
+	[Attribute(defvalue: "99", uiwidget: UIWidgets.EditBox, desc: "The maximum amount of buildings to consider when creating the objective size", category: "Attack and Defend")]
     int m_maxBuildingCount;
 	
 	[Attribute(defvalue: "75", uiwidget: UIWidgets.EditBox, desc: "The maximum distance for buildings to consider apart of the objective building", category: "Attack and Defend")]
@@ -79,7 +82,7 @@ class GRAY_RouletteManager : GenericEntity
 		if(Replication.IsClient() || SCR_Global.IsEditMode(owner))
 			return;
 
-		GetGame().GetCallqueue().CallLater(SelectScenario, random.RandInt(5,500), false);	
+		GetGame().GetCallqueue().CallLater(SelectScenario, random.RandInt(5,500), false);
 	}
 	
 	void SelectScenario()
@@ -108,31 +111,22 @@ class GRAY_RouletteManager : GenericEntity
 		objective.SetOwnerFaction(attackingTeam.GetFaction());
 	}
 	
-	void SpawnBriefing(string title, string text, GRAY_RouletteTeamData team = null, int order = 0)
+	GRAY_MissionDescription SpawnBriefing(string title, string text, int order = 0)
 	{
-		ResourceName prefab = "{94B01B942436D850}Prefabs/Roulette/Briefing.et";
-		EntitySpawnParams spawnParams = new EntitySpawnParams();
-		GRAY_MissionDescription briefing = GRAY_MissionDescription.Cast(GetGame().SpawnEntityPrefab(Resource.Load(prefab), null, spawnParams));
+		GRAY_MissionDescription briefing = GRAY_MissionDescription.Cast(SpawnPrefab("{94B01B942436D850}Prefabs/Roulette/Briefing.et"));
+		
 		briefing.SetTitle(title);
 		briefing.SetTextData(text);
 		
-		if(team)
-		{
-			briefing.SetVisibleForFactionKey(team.GetFaction(), true);
-			briefing.SetVisibleForEmptyFaction(false);
-			briefing.SetShowAnyFaction(false);
-		}
-		
 		if(order)
 			briefing.SetOrder(order);
+		
+		return briefing;
 	}
 	
-	PS_ManualMarker SpawnMarker(vector position, string imageSet, string quadName, string text = string.Empty, float size = 0, Color color = Color.White, bool worldScale = true)
+	PS_ManualMarker SpawnMarker(vector position, string imageSet, string quadName, bool worldScale = true)
 	{
-		ResourceName prefab = "{CD85ADE9E0F54679}PrefabsEditable/Markers/EditableMarker.et";
-		EntitySpawnParams spawnParams = new EntitySpawnParams();
-		spawnParams.Transform[3] = position;
-		PS_ManualMarker marker = PS_ManualMarker.Cast(GetGame().SpawnEntityPrefab(Resource.Load(prefab), null, spawnParams));
+		PS_ManualMarker marker = PS_ManualMarker.Cast(SpawnPrefab("{CD85ADE9E0F54679}PrefabsEditable/Markers/EditableMarker.et", position));
 		
 		marker.SetVisibleForEmptyFaction(true);
 		marker.m_bShowForAnyFaction = true;
@@ -141,16 +135,6 @@ class GRAY_RouletteManager : GenericEntity
 		marker.SetImageSetGlow("");
 		marker.SetImageSet(imageSet);
 		marker.SetQuadName(quadName);
-		
-		marker.SetColor(color);
-		
-		Print("GRAY_RouletteAD. marker color = " + color);
-		
-		if(size)
-			marker.SetSize(size);
-
-		if(text)
-			marker.SetDescription(text);
 		
 		return marker;
 	}
@@ -189,36 +173,46 @@ class GRAY_RouletteManager : GenericEntity
 		AOLimitComp.SetPoints(points);
 	}
 	
-	void SpawnTeam(GRAY_RouletteTeamData team, vector position, int targetCount, int minCount = 1, vector offset = Vector(0,0,6))
+	int SpawnTeam(out map<string, int> elementCounts, GRAY_RouletteTeamData team, vector position, int targetCount, int minCount = 1, vector offset = Vector(0,0,12))
 	{
-		array<ref array<ResourceName>> prefabsToSpawnByCompany;
-		GetTeamPrefabs(prefabsToSpawnByCompany, team, targetCount, minCount);
+		array<ref array<GRAY_RouletteSquad>> prefabsToSpawnByCompany;
+		int finalCount = GetTeamPrefabs(prefabsToSpawnByCompany, elementCounts, team, targetCount, minCount);
 		
-		foreach (array<ResourceName> companyPrefabs : prefabsToSpawnByCompany)
+		foreach (array<GRAY_RouletteSquad> companyPrefabs : prefabsToSpawnByCompany)
 		{
-			foreach (ResourceName prefab : companyPrefabs)
+			foreach (GRAY_RouletteSquad squad : companyPrefabs)
 			{
-				SpawnPrefab(prefab, position + offset);
+				ResourceName prefab = squad.GetPrefab();
+				SCR_AIGroup group = SCR_AIGroup.Cast(SpawnPrefab(prefab, position + offset));
+				string callsign = squad.GetCallsign();
+				if(callsign != string.Empty)
+					group.m_customCallsign = callsign;
+
 				offset[2] = offset[2] - 2;
 			}
 		}
+		
+		return finalCount;
 	}
 	
-	int GetTeamPrefabs(out array<ref array<ResourceName>> prefabsToSpawnByCompany, GRAY_RouletteTeamData team, int targetCount, int minCount = 1)
+	int GetTeamPrefabs(out array<ref array<GRAY_RouletteSquad>> prefabsToSpawnByCompany, out map<string, int> elementCounts, GRAY_RouletteTeamData team, int targetCount, int minCount = 1)
 	{
 		int currentCount = 0;
 		prefabsToSpawnByCompany = {};
 	
-		map<string, int> elementCounts;
+		elementCounts = new map<string, int>();
+		elementCounts.Insert("squad", 0);
+		elementCounts.Insert("platoon", 0);
+		elementCounts.Insert("company", 0);
 		
 		foreach (GRAY_RouletteCompany company : team.GetCompanies())
 		{
-			array<ResourceName> companyPrefabs = {};
+			array<GRAY_RouletteSquad> companyPrefabs = {};
 			bool companyAdded = false;
 	
 			foreach (GRAY_RoulettePlatoon platoon : company.GetPlatoons())
 			{
-				array<ResourceName> platoonPrefabs = {};
+				array<GRAY_RouletteSquad> platoonPrefabs = {};
 				bool platoonAdded = false;
 	
 				foreach (GRAY_RouletteSquad squad : platoon.GetSquads())
@@ -231,8 +225,10 @@ class GRAY_RouletteManager : GenericEntity
 						int companyCount = company.GetPlayerCount();
 						if (IsCloserTo(currentCount + companyCount, currentCount, targetCount) || currentCount < minCount)
 						{
-							companyPrefabs.InsertAt(company.GetPrefab(), 0); // Insert company prefab first!
+							companyPrefabs.InsertAt(company, 0); // Insert company prefab first!
 							currentCount += companyCount;
+							int companiesCount = elementCounts.Get("company");
+							elementCounts.Set("company", companiesCount + 1);
 							companyAdded = true;
 						}
 					}
@@ -243,8 +239,10 @@ class GRAY_RouletteManager : GenericEntity
 						int platoonCount = platoon.GetPlayerCount();
 						if (IsCloserTo(currentCount + platoonCount, currentCount, targetCount) || currentCount < minCount)
 						{
-							platoonPrefabs.InsertAt(platoon.GetPrefab(), 0); // Insert platoon prefab first!
+							platoonPrefabs.InsertAt(platoon, 0); // Insert platoon prefab first!
 							currentCount += platoonCount;
+							int platoonsCount = elementCounts.Get("platoon");
+							elementCounts.Set("platoon", platoonsCount + 1);
 							platoonAdded = true;
 						}
 					}
@@ -253,8 +251,10 @@ class GRAY_RouletteManager : GenericEntity
 						break;
 	
 					// Insert the squad prefab
-					platoonPrefabs.Insert(squad.GetPrefab());
+					platoonPrefabs.Insert(squad);
 					currentCount += squadCount;
+					int squadsCount = elementCounts.Get("squad");
+					elementCounts.Set("squad", squadsCount + 1);
 				}
 	
 				// Add Platoon + Squads to Company hierarchy only if a squad was added
@@ -271,7 +271,6 @@ class GRAY_RouletteManager : GenericEntity
 			if (currentCount >= targetCount && currentCount > minCount)
 				break;
 		}
-
 		return currentCount;
 	}
 
@@ -285,19 +284,36 @@ class GRAY_RouletteManager : GenericEntity
 		
 		// Setup team pools
 		map<GRAY_eScopeType, ref array<GRAY_RouletteTeamData>> teamPool = new map<GRAY_eScopeType, ref array<GRAY_RouletteTeamData>>();
+		map<GRAY_eScopeType, ref array<FactionKey>> factionMap = new map<GRAY_eScopeType, ref array<FactionKey>>();
 		array<GRAY_eScopeType> enumValues = {};
 		SCR_Enum.GetEnumValues(GRAY_eScopeType, enumValues);
-		foreach(GRAY_eScopeType value : enumValues) teamPool.Insert(value, {});
+		foreach(GRAY_eScopeType value : enumValues)
+		{
+			teamPool.Insert(value, {});
+			factionMap.Insert(value, {});
+		}
 		
 		foreach(GRAY_RouletteTeamData team : m_teamsList)
 		{
 			GRAY_eScopeType scopeType = team.GetScopeType();
 			array<GRAY_RouletteTeamData> teamArray = teamPool.Get(scopeType);
 			teamArray.Insert(team);
+			
+			FactionKey faction = team.GetFaction();
+			array<FactionKey> keyArray = factionMap.Get(scopeType);
+			if(!keyArray.Contains(faction))
+			{
+				keyArray.Insert(faction);
+				factionMap.Set(scopeType, keyArray);
+			}
 		}
 		
 		foreach(GRAY_eScopeType scopeType, array<GRAY_RouletteTeamData> teamArray : teamPool)
 		{
+			array<FactionKey> keyArray = factionMap.Get(scopeType);
+			if(keyArray.Count() < count)
+				teamPool.Remove(scopeType);
+			
 			if(teamArray.Count() < count)
 				teamPool.Remove(scopeType);
 		}
@@ -307,13 +323,55 @@ class GRAY_RouletteManager : GenericEntity
 		
 		int randomIndex = Math.RandomInt(1,teamPool.Count()) - 1;
 		array<GRAY_RouletteTeamData> selectedTeams = teamPool.GetElement(randomIndex);
+		teamPool.RemoveElement(randomIndex);
+		
+		
+		array<FactionKey> blacklist = {};
 		teams = {};
-		for (int i = 0; i < count; i++)
+		int counter = 0;
+		while(teams.Count() < count && counter < 1000)
 		{
+			counter++;
+			
 			GRAY_RouletteTeamData team  = selectedTeams.GetRandomElement();
+			
+			if(blacklist.Contains(team.GetFaction()) )
+			{
+				selectedTeams.RemoveItem(team);
+				continue;
+			}
+
 		    teams.Insert(team);
+			blacklist.Insert(team.GetFaction());
+			blacklist.InsertAll(team.GetBlacklist());
 			selectedTeams.RemoveItem(team);
+			
+			foreach(GRAY_RouletteTeamData teamFilter : selectedTeams)
+			{
+				FactionKey faction = teamFilter.GetFaction();
+				if(blacklist.Contains(team.GetFaction()) )
+				{
+					selectedTeams.RemoveItem(team);
+					continue;
+				}
+			}
+			
+			if(selectedTeams.IsEmpty())
+			{
+				if(!teamPool.IsEmpty())
+				{
+					randomIndex = Math.RandomInt(1,teamPool.Count()) - 1;
+					selectedTeams = teamPool.GetElement(randomIndex);
+					teamPool.RemoveElement(randomIndex);
+					continue;
+				}
+				
+				return Print("GRAY_RouletteManager.SetupTeams | Not enough teams!", LogLevel.ERROR);
+			}
 		}
+		
+		if(teams.Count() < count)
+			return Print("GRAY_RouletteManager.SetupTeams | Not enough teams!", LogLevel.ERROR);
 	}
 	
 	
@@ -605,7 +663,7 @@ class GRAY_RouletteManager : GenericEntity
 		return Math.AbsFloat(x - target) < Math.AbsFloat(y - target);
 	}
 	
-	IEntity SpawnPrefab(ResourceName prefab, vector position)
+	IEntity SpawnPrefab(ResourceName prefab, vector position = vector.Zero)
 	{
 		EntitySpawnParams spawnParams = new EntitySpawnParams();
 		spawnParams.Transform[3] = position;

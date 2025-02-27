@@ -1,0 +1,22 @@
+GenericEntity : "{62C0DEE2E41026EC}Prefabs/Roulette/Roulette_GameMode.et" {
+ ID "64B73C0190BC6C23"
+ coords 6324.168 5.252 9654.25
+ {
+  PS_GameModeCoop {
+   ID "64B73C01EE75E15E"
+   components {
+    SCR_TimeAndWeatherHandlerComponent "{5EE3229927D4D2F5}" {
+     m_bRandomStartingDaytimeRange 1
+     m_iRangeHoursStart 5
+     m_iRangeHoursEnd 21
+     m_bRandomStartingWeather 1
+     m_bRandomWeatherChanges 1
+    }
+   }
+  }
+  TILW_MissionFrameworkEntity {
+   ID "64B73C01EE75E159"
+   m_suppressGameEnd 0
+  }
+ }
+}

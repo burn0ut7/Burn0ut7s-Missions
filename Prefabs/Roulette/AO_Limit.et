@@ -3,8 +3,8 @@ PolylineShapeEntity : "{85222A2744768C81}Prefabs/Logic/AOLimit/TILW_AOLimit.et" 
  components {
   TILW_AOLimitComponent "{6217617AC21DEB7B}" {
    m_visibility ALL
-   m_useFactionColor 0
+   m_lineWidth 3
   }
  }
- coords 4883.528 28.855 10595.94
+ coords 4539.573 14.438 10919.991
 }

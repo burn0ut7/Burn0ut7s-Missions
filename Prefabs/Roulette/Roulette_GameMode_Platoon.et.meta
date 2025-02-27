@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{723BA9A52E9FE83C}Prefabs/Roulette/Briefing_Situation_ISS.et"
+ Name "{5AC3CAD5128E8440}Prefabs/Roulette/Roulette_GameMode_Platoon.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

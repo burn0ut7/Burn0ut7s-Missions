@@ -1,0 +1,13 @@
+GenericEntity : "{5AC3CAD5128E8440}Prefabs/Roulette/Roulette_GameMode_Platoon.et" {
+ ID "64B73C0190BC6C23"
+ coords 6435.787 161.54 6442.988
+ {
+  GRAY_RouletteManager {
+   ID "64B73C01EE75E165"
+   m_minPlayerCount 100
+   m_aoLimitWidth 1200
+   m_minAoLimitLength 1750
+   m_maxAoLimitLength 3000
+  }
+ }
+}

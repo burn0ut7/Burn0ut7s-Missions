@@ -11,7 +11,42 @@ enum GRAY_eScopeType
 	Some,
 	All
 }
- 
+
+enum GRAY_eBriefingType
+{
+	Any,
+	Defender,
+	Attacker
+}
+
+[BaseContainerProps()]
+class GRAY_RouletteBriefingData
+{
+	[Attribute("", UIWidgets.EditBox, category: "Attack and Defend")]
+	protected string title;
+	
+	[Attribute(defvalue: "", uiwidget: UIWidgets.EditBoxMultiline, desc: "Briefing description. %1 = Defender team, %2 = Attacker team, %3 = Defender Element, %4 = Attacker Element", category: "Attack and Defend")]
+	protected string description;
+	
+	[Attribute("0", UIWidgets.ComboBox, desc: "What side will this briefing appear for?", "", ParamEnumArray.FromEnum(GRAY_eBriefingType))]
+	protected GRAY_eBriefingType side;
+
+	string GetTitle()
+	{
+		return title;
+	}
+	
+	string GetDescription()
+	{ 
+		return description; 
+	}
+	
+	GRAY_eBriefingType GetSide()
+	{
+		return side;
+	}
+}
+
 [BaseContainerProps()]
 class GRAY_RouletteTeamData
 {
@@ -24,11 +59,8 @@ class GRAY_RouletteTeamData
 	[Attribute("", UIWidgets.ComboBox, desc: "Does this team have scopes? Teams will only vs other teams with same scope type.", "", ParamEnumArray.FromEnum(GRAY_eScopeType))]
 	protected GRAY_eScopeType scopeType;
 	
-	[Attribute("", UIWidgets.Auto)]
-	protected int platoonsPerCompany;
-	
-	[Attribute("", UIWidgets.Auto)]
-	protected int squadsPerPlatoon;
+	[Attribute("", UIWidgets.Auto, desc: "This team cannot versus these faction keys.")]
+    protected ref array<FactionKey> versusBlacklist;
 	
 	[Attribute(defvalue: "", UIWidgets.Object)]
     protected ref array<ref GRAY_RouletteCompany> companies;
@@ -53,6 +85,11 @@ class GRAY_RouletteTeamData
 	{
 		return companies;
 	}
+	
+	array<FactionKey> GetBlacklist()
+	{
+		return versusBlacklist;
+	}
 }
 
 [BaseContainerProps()]
@@ -60,16 +97,6 @@ class GRAY_RouletteCompany : GRAY_RouletteSquad
 {
 	[Attribute(defvalue: "", UIWidgets.Object)]
     protected ref array<ref GRAY_RoulettePlatoon> platoons;
-	
-	void GRAY_RouletteCompany()
-	{
-		foreach(GRAY_RoulettePlatoon platoon : platoons)
-		{
-			totalCount += platoon.GetTotalCount();
-		}
-
-		Print("GRAY_RouletteCompany count = " + GetTotalCount());
-	}
 	
 	array<ref GRAY_RoulettePlatoon> GetPlatoons()
 	{
@@ -82,16 +109,6 @@ class GRAY_RoulettePlatoon : GRAY_RouletteSquad
 {
 	[Attribute(defvalue: "", UIWidgets.Object)]
     protected ref array<ref GRAY_RouletteSquad> squads;
-	
-	void GRAY_RoulettePlatoon()
-	{
-		foreach(GRAY_RouletteSquad squad : squads)
-		{
-			totalCount += squad.GetTotalCount();
-		}
-		
-		Print("GRAY_RoulettePlatoon count = " + GetTotalCount());
-	}
 	
 	array<ref GRAY_RouletteSquad> GetSquads()
 	{
@@ -108,12 +125,9 @@ class GRAY_RouletteSquad
 	[Attribute("", UIWidgets.EditBox, desc: "How many players are ONLY in this element prefab above?")]
 	protected int playerCount;
 	
-	protected int totalCount = 0;
+	[Attribute("", UIWidgets.EditBox, desc: "Manual callsign")]
+	protected string callsign;
 	
-	void GRAY_RouletteSquad()
-	{
-		totalCount += playerCount;
-	}
 	ResourceName GetPrefab()
 	{
 		return prefab;
@@ -124,9 +138,9 @@ class GRAY_RouletteSquad
 		return playerCount;
 	}
 	
-	int GetTotalCount()
+	string GetCallsign()
 	{
-		return totalCount;
+		return callsign;
 	}
 }
 
