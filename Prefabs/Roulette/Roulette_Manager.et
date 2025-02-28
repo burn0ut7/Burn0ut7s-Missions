@@ -16,8 +16,8 @@ GRAY_RouletteManager {
    title "Briefing: Situation"
    description "I. Situation:"\
    "Everon, 2020."\
-   "Local Time: Day"\
-   "Weather: Clear"\
+   "Local Time: Random(Check top right)"\
+   "Weather: Random"\
    ""\
    "Ia. Friendly Forces:"\
    "%3"\

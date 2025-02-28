@@ -36,11 +36,11 @@ class GRAY_RouletteAD
 		// Spawn teams
 		map<string, int> defenderCounts;
 		int defenderRatio = rouletteManager.m_minPlayerCount / (1 + rouletteManager.m_ratio);
-		int defenderCount = rouletteManager.SpawnTeam(defenderCounts, teams[0], defenderSpawn, defenderRatio, defenderRatio);
+		int defenderCount = rouletteManager.SpawnTeam(defenderCounts, teams[0], defenderSpawn, defenderRatio, defenderRatio - 5);
 		Print("GRAY_RouletteAD.Scenario defenderCount = "+ defenderCount);
 		
 		map<string, int> attackerCounts;
-		int attackerRatio = defenderRatio * rouletteManager.m_ratio;
+		int attackerRatio = defenderCount * rouletteManager.m_ratio;
 		int attackerCount = rouletteManager.SpawnTeam(attackerCounts, teams[1], attackerSpawn, attackerRatio, attackerRatio - 5);
 		Print("GRAY_RouletteAD.Scenario attackerCount = "+ attackerCount);
 		

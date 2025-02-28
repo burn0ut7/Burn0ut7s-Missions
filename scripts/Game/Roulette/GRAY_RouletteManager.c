@@ -55,6 +55,9 @@ class GRAY_RouletteManager : GenericEntity
 	[Attribute(defvalue: "", uiwidget: UIWidgets.EditBox, desc: "Blacklist of keywords for buildings to not consider. Case sensitive!!", category: "Advanced")]
     ref array<string> m_buildingBlackListKeyword;
 	
+	[Attribute(defvalue: "", uiwidget: UIWidgets.CheckBox, desc: "Ignore checking for a path with no water", category: "Advanced")]
+    bool m_ignoreWaterCheck;
+	
 	[Attribute(defvalue: "", UIWidgets.Object)]
     ref array<ref GRAY_RouletteTeamData> m_teamsList;
 
@@ -126,13 +129,9 @@ class GRAY_RouletteManager : GenericEntity
 	
 	PS_ManualMarker SpawnMarker(vector position, string imageSet, string quadName, bool worldScale = true)
 	{
-		PS_ManualMarker marker = PS_ManualMarker.Cast(SpawnPrefab("{CD85ADE9E0F54679}PrefabsEditable/Markers/EditableMarker.et", position));
-		
-		marker.SetVisibleForEmptyFaction(true);
-		marker.m_bShowForAnyFaction = true;
+		PS_ManualMarker marker = PS_ManualMarker.Cast(SpawnPrefab("{C4B307B5ABABEFB7}Prefabs/Roulette/Marker.et", position));
 
 		marker.SetUseWorldScale(worldScale);
-		marker.SetImageSetGlow("");
 		marker.SetImageSet(imageSet);
 		marker.SetQuadName(quadName);
 		
@@ -384,16 +383,29 @@ class GRAY_RouletteManager : GenericEntity
 		float stepDistance = searchRadius * 2;
 		float distance = minDistance;
 		int count = 0;
+		vector buffer = Vector(500, 0, 500);
+		protected vector worldMin;
+		protected vector worldMax;
+		GetGame().GetWorld().GetBoundBox(worldMin, worldMax);
 		
-		while(count < 100 && distance < maxDistance)
+		while(count < 500 && distance < maxDistance)
 		{
 			float directionX = Math.Cos(angle);
 	    	float directionZ = Math.Sin(angle);
 			vector searchPosition = Vector(directionX, 0, directionZ) * distance + startPosition;
+
+			if (searchPosition[0] < worldMin[0] + buffer[0] || searchPosition[0] > worldMax[0] - buffer[0] ||
+			searchPosition[2] < worldMin[2] + buffer[2] || searchPosition[2] > worldMax[2] - buffer[2])
+			{
+			    return false;
+			}
 			
-			bool isWater = IsWaterOnLine(startPosition, searchPosition, 10, 2);
-			if(isWater)
-				return false;
+			if(!m_ignoreWaterCheck)
+			{
+				bool isWater = IsWaterOnLine(startPosition, searchPosition, 10, 2);
+				if(isWater)
+					return false;
+			}
 
 			bool found = FindEmptyPosition(outPosition, searchPosition, searchRadius, searchSize);
 			if(found)
