@@ -22,8 +22,8 @@ class GRAY_RouletteManager : GenericEntity
 	[Attribute(defvalue: "60", uiwidget: UIWidgets.EditBox, desc: "Target minimum player count")]
     int m_minPlayerCount;
 	
-	[Attribute(defvalue: "2", uiwidget: UIWidgets.EditBox, desc: "Target m_ratio, 1 : ?")]
-    int m_ratio;
+	[Attribute(defvalue: "1.7", uiwidget: UIWidgets.EditBox, desc: "Target m_ratio, 1 : ?")]
+    float m_ratio;
 	
 	[Attribute(defvalue: "1000", uiwidget: UIWidgets.EditBox, desc: "The width of the AO limit", category: "Attack and Defend")]
     int m_aoLimitWidth;
@@ -54,6 +54,9 @@ class GRAY_RouletteManager : GenericEntity
 	
 	[Attribute(defvalue: "", uiwidget: UIWidgets.EditBox, desc: "Blacklist of keywords for buildings to not consider. Case sensitive!!", category: "Advanced")]
     ref array<string> m_buildingBlackListKeyword;
+	
+	[Attribute(defvalue: "", uiwidget: UIWidgets.CheckBox, desc: "Ignore checking for a path with no water", category: "Advanced")]
+    bool m_ignoreWaterCheck;
 	
 	[Attribute(defvalue: "", UIWidgets.Object)]
     ref array<ref GRAY_RouletteTeamData> m_teamsList;
@@ -92,7 +95,6 @@ class GRAY_RouletteManager : GenericEntity
 		array<GRAY_eScenarios> scenarios = {};
 		SCR_Enum.GetEnumValues(GRAY_eScenarios, scenarios);
 
-
 		int scenario = random.RandInt(1, scenarios.Count());
 		switch (scenario)
 		{
@@ -100,9 +102,31 @@ class GRAY_RouletteManager : GenericEntity
 		}	
 	}
 	
+	void SetRandomTime()
+	{
+		TimeAndWeatherManagerEntity manager = ChimeraWorld.CastFrom(GetGame().GetWorld()).GetTimeAndWeatherManager();
+		
+		float sunrise;
+		float sunset;
+		
+		if (manager.GetSunriseHour(sunrise))
+		{
+			manager.GetSunsetHour(sunset);
+		}
+		else
+		{
+			sunrise = 8;
+			sunset = 18;
+		}
+		
+		float hours24 = Math.RandomFloat(sunrise - 2, sunset + 2);
+		hours24 = Math.Clamp(hours24, 0, 24);
+		
+		manager.SetTimeOfTheDay(hours24, true);
+	}
+	
 	void SetupObjective(vector position, float size, GRAY_RouletteTeamData attackingTeam)
 	{
-		//Create and move the objective
 		ResourceName prefab = "{145F6522D0DD766C}Prefabs/Roulette/Capture_Area.et";
 		EntitySpawnParams spawnParams = new EntitySpawnParams();
 		spawnParams.Transform[3] = position;
@@ -126,13 +150,9 @@ class GRAY_RouletteManager : GenericEntity
 	
 	PS_ManualMarker SpawnMarker(vector position, string imageSet, string quadName, bool worldScale = true)
 	{
-		PS_ManualMarker marker = PS_ManualMarker.Cast(SpawnPrefab("{CD85ADE9E0F54679}PrefabsEditable/Markers/EditableMarker.et", position));
-		
-		marker.SetVisibleForEmptyFaction(true);
-		marker.m_bShowForAnyFaction = true;
+		PS_ManualMarker marker = PS_ManualMarker.Cast(SpawnPrefab("{C4B307B5ABABEFB7}Prefabs/Roulette/Marker.et", position));
 
 		marker.SetUseWorldScale(worldScale);
-		marker.SetImageSetGlow("");
 		marker.SetImageSet(imageSet);
 		marker.SetQuadName(quadName);
 		
@@ -171,6 +191,10 @@ class GRAY_RouletteManager : GenericEntity
 		Print("GRAY_RouletteManager.SetupAOLimit - AO Limit entity" + entity);
 
 		AOLimitComp.SetPoints(points);
+		
+		TILW_MapShapeComponent coverComp = TILW_MapShapeComponent.Cast(entity.FindComponent(TILW_MapShapeComponent));
+		coverComp.SetPoints3D(points);
+		GetGame().GetCallqueue().CallLater(coverComp.SetPoints3D, 100, false, points);
 	}
 	
 	int SpawnTeam(out map<string, int> elementCounts, GRAY_RouletteTeamData team, vector position, int targetCount, int minCount = 1, vector offset = Vector(0,0,12))
@@ -185,8 +209,8 @@ class GRAY_RouletteManager : GenericEntity
 				ResourceName prefab = squad.GetPrefab();
 				SCR_AIGroup group = SCR_AIGroup.Cast(SpawnPrefab(prefab, position + offset));
 				string callsign = squad.GetCallsign();
-				if(callsign != string.Empty)
-					group.m_customCallsign = callsign;
+				//if(callsign != string.Empty)
+				//	group.m_customCallsign = callsign;
 
 				offset[2] = offset[2] - 2;
 			}
@@ -384,16 +408,29 @@ class GRAY_RouletteManager : GenericEntity
 		float stepDistance = searchRadius * 2;
 		float distance = minDistance;
 		int count = 0;
+		vector buffer = Vector(500, 0, 500);
+		protected vector worldMin;
+		protected vector worldMax;
+		GetGame().GetWorld().GetBoundBox(worldMin, worldMax);
 		
-		while(count < 100 && distance < maxDistance)
+		while(count < 500 && distance < maxDistance)
 		{
 			float directionX = Math.Cos(angle);
 	    	float directionZ = Math.Sin(angle);
 			vector searchPosition = Vector(directionX, 0, directionZ) * distance + startPosition;
+
+			if (searchPosition[0] < worldMin[0] + buffer[0] || searchPosition[0] > worldMax[0] - buffer[0] ||
+			searchPosition[2] < worldMin[2] + buffer[2] || searchPosition[2] > worldMax[2] - buffer[2])
+			{
+			    return false;
+			}
 			
-			bool isWater = IsWaterOnLine(startPosition, searchPosition, 10, 2);
-			if(isWater)
-				return false;
+			if(!m_ignoreWaterCheck)
+			{
+				bool isWater = IsWaterOnLine(startPosition, searchPosition, 10, 2);
+				if(isWater)
+					return false;
+			}
 
 			bool found = FindEmptyPosition(outPosition, searchPosition, searchRadius, searchSize);
 			if(found)

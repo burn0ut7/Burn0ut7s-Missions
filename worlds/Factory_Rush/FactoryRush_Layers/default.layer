@@ -93,7 +93,7 @@ $grp PS_MissionDescription : "{3136BE42592F3B1B}PrefabsEditable/MissionDescripti
   }
  }
 }
-SCR_AIGroup : "{4612288297E3FCAC}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleSquad_P.et" {
+SCR_AIGroup : "{4612288297E3FCAC}Prefabs/Groups/OPFOR/RF/AFRF_Rifles_2010s/P/AFRF_Rifles_2020_RifleSquad_P.et" {
  coords 4838.31 27.469 11575.324
  m_aUnitPrefabSlots {
   "{476C3ECD07249865}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Leader_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et" "{2F5E3906F00D4B18}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Demiseason/Character_RHS_RF_MSV_VKPO_DS_Rifleman_P.et"
@@ -119,6 +119,7 @@ PolylineShapeEntity OPFOR : "{85222A2744768C81}Prefabs/Logic/AOLimit/TILW_AOLimi
    m_factionKeys {
     "RHS_AFRF"
    }
+   m_visibility ALL
   }
  }
  coords 4829.653 28 11574.558
@@ -140,6 +141,9 @@ PolylineShapeEntity OPFOR : "{85222A2744768C81}Prefabs/Logic/AOLimit/TILW_AOLimi
 PS_ManuaMarkerRender : "{88D799C5DED9EC70}PrefabsEditable/Markers/EditableMarkerRender.et" {
  coords 4817.577 94.537 11572.466
  angleX -90
+ m_sImageSet "{7CD99D22C7AE8195}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor.imageset"
+ m_sImageSetGlow "{B9356E7B2E974DCD}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor-outline.imageset"
+ m_sQuadName "undefined"
  m_bVisibleForEmptyFaction 1
  m_aHideOnGameModeStates {
   1
@@ -182,24 +186,12 @@ TILW_MissionFrameworkEntity : "{8F846D0FD5D6EA51}Prefabs/MP/TILW_MissionFramewor
   }
  }
 }
-$grp PS_ManualMarker : "{CD85ADE9E0F54679}PrefabsEditable/Markers/EditableMarker.et" {
- {
-  coords 5301.293 39.53 11382.395
-  m_sImageSet "{1228936E5DB30403}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor.imageset"
-  m_sImageSetGlow "{D1BFDF90DD7A4E01}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor-outline.imageset"
-  m_sQuadName "undefined"
-  m_bVisibleForEmptyFaction 1
-  m_iZOrder 1
-  m_bShowForAnyFaction 1
- }
- {
-  coords 4828.805 39.595 11571.43
-  angleY 0
-  m_sImageSet "{7CD99D22C7AE8195}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor.imageset"
-  m_sImageSetGlow "{B9356E7B2E974DCD}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor-outline.imageset"
-  m_sQuadName "undefined"
-  m_bVisibleForEmptyFaction 1
-  m_iZOrder 1
-  m_bShowForAnyFaction 1
- }
+PS_ManualMarker : "{CD85ADE9E0F54679}PrefabsEditable/Markers/EditableMarker.et" {
+ coords 5301.293 39.53 11382.395
+ m_sImageSet "{1228936E5DB30403}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor.imageset"
+ m_sImageSetGlow "{D1BFDF90DD7A4E01}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor-outline.imageset"
+ m_sQuadName "undefined"
+ m_bVisibleForEmptyFaction 1
+ m_iZOrder 1
+ m_bShowForAnyFaction 1
 }

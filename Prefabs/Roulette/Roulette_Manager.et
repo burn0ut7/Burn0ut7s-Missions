@@ -1,6 +1,7 @@
 GRAY_RouletteManager {
  ID "648EEA4374299678"
  coords 0 0 0
+ m_ratio 1.5
  m_breifings {
   GRAY_RouletteBriefingData "{648D13AF4F7A2809}" {
    title "Briefing: Notes"
@@ -16,8 +17,8 @@ GRAY_RouletteManager {
    title "Briefing: Situation"
    description "I. Situation:"\
    "Everon, 2020."\
-   "Local Time: Day"\
-   "Weather: Clear"\
+   "Local Time: Random(Check top right)"\
+   "Weather: Random"\
    ""\
    "Ia. Friendly Forces:"\
    "%3"\
@@ -47,8 +48,8 @@ GRAY_RouletteManager {
    title "Briefing: Situation"
    description "I. Situation:"\
    "Everon, 2020."\
-   "Local Time: Day"\
-   "Weather: Clear"\
+   "Local Time: Random(Check top right)"\
+   "Weather: Random"\
    ""\
    "Ia. Friendly Forces:"\
    "%4"\
@@ -77,7 +78,7 @@ GRAY_RouletteManager {
  }
  m_maxBuildingCount 999
  m_buildingBlackListKeyword {
-  "Greenhouse" "Pier" "Wall" "Calvary" "HouseRuin" "Hotbed" "Bollard" "Grave"
+  "Greenhouse" "Pier" "Wall" "Calvary" "HouseRuin" "Hotbed" "Bollard" "Grave" "Bridge"
  }
  m_teamsList {
   GRAY_RouletteTeamData "{648D13AF4F7A4DBF}" {

@@ -1,22 +1,88 @@
-GenericEntity : "{62C0DEE2E41026EC}Prefabs/Roulette/Roulette_GameMode.et" {
- ID "64B73C0190BC6C23"
- coords 6324.168 5.252 9654.25
+GenericEntity {
+ ID "64B8FA30ED384DF3"
+ coords 4973.794 128.955 7775.881
  {
-  PS_GameModeCoop {
-   ID "64B73C01EE75E15E"
+  SCR_AIWorld : "{70CCCF16487C927F}Prefabs/AI/SCR_AIWorld_Eden.et" {
+   ID "64B8FA30ED384DE5"
+   coords -105.32 -99.321 2827.686
+  }
+  PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+   ID "64B8FA30ED384DEF"
+   coords -105.771 -100.06 2824.062
+  }
+  PS_GameModeCoop PS_GameMode_Lobby_TILWMF1 : "{4CFD54745CD45673}Prefabs/MP/Modes/PS_GameMode_Lobby_TILWMF.et" {
+   ID "64B8FA30ED384DE2"
    components {
     SCR_TimeAndWeatherHandlerComponent "{5EE3229927D4D2F5}" {
-     m_bRandomStartingDaytimeRange 1
      m_iRangeHoursStart 5
      m_iRangeHoursEnd 21
      m_bRandomStartingWeather 1
      m_bRandomWeatherChanges 1
     }
    }
+   coords -96.573 -100.372 2823.683
+   {
+    SCR_FactionManager "632E4DCFA68EAEC7" {
+     ID "5ED9088735FF2D8B"
+     Factions {
+      SCR_Faction "{56DEAC40D3C2E623}" {
+       m_CallsignInfo SCR_FactionCallsignInfo "{5DA0F2A67DFB8809}" {
+        m_bIsAssignedRandomly 0
+        m_aPlatoonNames {
+         SCR_CallsignInfo "{64B8FC4EB7432E63}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EB806CC1B}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EBBE71504}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EBDFFE9D0}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EE015B18A}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EE3AFBFF3}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EE5043041}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EE49F0264}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EE6725C40}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EE86C0150}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EEBE3E1D6}" {
+         }
+         SCR_CallsignInfo "{64B8FC4EED9474D1}" {
+         }
+        }
+       }
+      }
+      SCR_Faction "{5978B9CE6585BBE8}" {
+       m_aFriendlyFactionsIds {
+       }
+       m_CallsignInfo SCR_FactionCallsignInfo "{5977478D568C093C}" {
+        m_bIsAssignedRandomly 0
+        m_iCompanyOverflowIndex 8
+       }
+      }
+      SCR_Faction "{5CC8DE37E1FF0F7A}" {
+       m_aFriendlyFactionsIds {
+       }
+      }
+      SCR_Faction "{61500924662B6062}" {
+       m_aFriendlyFactionsIds {
+       }
+      }
+     }
+    }
+   }
   }
-  TILW_MissionFrameworkEntity {
-   ID "64B73C01EE75E159"
-   m_suppressGameEnd 0
+  GRAY_RouletteManager : "{3E343558288C94CF}Prefabs/Roulette/Roulette_Manager.et" {
+   ID "64B8FA30ED384DE6"
+   coords -96.573 -100.372 2823.682
+  }
+  TILW_MissionFrameworkEntity : "{8F846D0FD5D6EA51}Prefabs/MP/TILW_MissionFramework.et" {
+   ID "64B8FA30ED384DF9"
+   coords -99.273 -100.373 2824.228
   }
  }
 }
