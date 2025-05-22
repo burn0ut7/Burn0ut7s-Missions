@@ -1,0 +1,14 @@
+GenericEntity : "{A00C4A23CD89F76E}Prefabs/Roulette/Roulette_GameMode_Company.et" {
+ coords 8767.668 99.639 5025.426
+ {
+  PS_GameModeCoop {
+   ID "64B8FA30ED384DE2"
+   components {
+    SCR_TimeAndWeatherHandlerComponent "{5EE3229927D4D2F5}" {
+     m_iRangeHoursStart 1
+     m_iRangeHoursEnd 16
+    }
+   }
+  }
+ }
+}

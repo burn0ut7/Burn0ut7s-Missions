@@ -1,3 +1,58 @@
 GenericEntity : "{5AC3CAD5128E8440}Prefabs/Roulette/Roulette_GameMode_Platoon.et" {
- coords 6317.896 5.159 9657.862
+ coords 6312.056 5.094 9663.389
+ {
+  PS_GameModeCoop "64B8FC442B98F699" {
+   ID "64B8FA30ED384DE2"
+   {
+    SCR_FactionManager "64B8FC442B98F688" {
+     ID "5ED9088735FF2D8B"
+     Factions {
+      SCR_Faction "{56DEAC40D3C2E623}" {
+       m_CallsignInfo SCR_FactionCallsignInfo "{5DA0F2A67DFB8809}" {
+        m_bIsAssignedRandomly 0
+        m_aPlatoonNames {
+         SCR_CallsignInfo "{64B8FC4C0F2F81E3}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0F710502}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0F9912DB}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0F84E592}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0FAB0153}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0FD43A3D}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0FFCD34A}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0FE763C3}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0E0CB0AD}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0E366E37}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0E5E7174}" {
+         }
+         SCR_CallsignInfo "{64B8FC4C0E79FFDD}" {
+         }
+        }
+       }
+      }
+      SCR_Faction "{5978B9CE6585BBE8}" {
+       m_aFriendlyFactionsIds {
+       }
+      }
+      SCR_Faction "{5CC8DE37E1FF0F7A}" {
+       m_aFriendlyFactionsIds {
+       }
+      }
+      SCR_Faction "{61500924662B6062}" {
+       m_aFriendlyFactionsIds {
+       }
+      }
+     }
+    }
+   }
+  }
+ }
 }

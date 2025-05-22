@@ -1,0 +1,20 @@
+GenericEntity : "{5AC3CAD5128E8440}Prefabs/Roulette/Roulette_GameMode_Platoon.et" {
+ coords 2183.874 5.225 1695.905
+ {
+  PS_GameModeCoop "656C140A8B5F8625" {
+   ID "64B8FA30ED384DE2"
+   components {
+    SCR_TimeAndWeatherHandlerComponent "{5EE3229927D4D2F5}" {
+     m_iRangeHoursStart 1
+     m_iRangeMinutesStart 30
+     m_iRangeHoursEnd 14
+    }
+   }
+  }
+  GRAY_RouletteManager {
+   ID "64B8FA30ED384DE6"
+   m_minAoLimitLength 1200
+   m_ignoreWaterCheck 1
+  }
+ }
+}

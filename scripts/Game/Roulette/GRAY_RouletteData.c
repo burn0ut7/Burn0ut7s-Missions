@@ -7,6 +7,7 @@ enum GRAY_eInfantryType
 
 enum GRAY_eScopeType
 {
+	Disregard,
 	None,
 	Some,
 	All
@@ -56,29 +57,31 @@ class GRAY_RouletteTeamData
 	[Attribute("", UIWidgets.EditBox, desc: "What is this teams faction key in the faction manager?")]
 	protected FactionKey factionKey;
 	
-	[Attribute("", UIWidgets.ComboBox, desc: "Does this team have scopes? Teams will only vs other teams with same scope type.", "", ParamEnumArray.FromEnum(GRAY_eScopeType))]
-	protected GRAY_eScopeType scopeType;
+	[Attribute("1", UIWidgets.Auto, desc: "Relative strength. 1 = 1980s baseline. Less = weaker, More = stronger")]
+	protected float strength;
+	
+	[Attribute("0", UIWidgets.EditBox, desc: "Use only squad callsigns from the faction manager")]
+	protected bool squadCallsignsOnly;
 	
 	[Attribute("", UIWidgets.Auto, desc: "This team cannot versus these faction keys.")]
     protected ref array<FactionKey> versusBlacklist;
 	
 	[Attribute(defvalue: "", UIWidgets.Object)]
     protected ref array<ref GRAY_RouletteCompany> companies;
-
+	
 	string GetName()
 	{
 		return name; 
 	}
 	
+	float GetStrength()
+	{
+		return strength; 
+	}
+	
 	FactionKey GetFaction()
 	{
 		return factionKey;
-	}
-
-	GRAY_eScopeType GetScopeType()
-	{ 
-		return scopeType; 
-	
 	}
 
 	array<ref GRAY_RouletteCompany> GetCompanies()
@@ -90,6 +93,11 @@ class GRAY_RouletteTeamData
 	{
 		return versusBlacklist;
 	}
+	
+	bool GetCallsign()
+	{
+		return squadCallsignsOnly;
+	}
 }
 
 [BaseContainerProps()]
@@ -97,7 +105,7 @@ class GRAY_RouletteCompany : GRAY_RouletteSquad
 {
 	[Attribute(defvalue: "", UIWidgets.Object)]
     protected ref array<ref GRAY_RoulettePlatoon> platoons;
-	
+
 	array<ref GRAY_RoulettePlatoon> GetPlatoons()
 	{
 		return platoons;
@@ -124,10 +132,7 @@ class GRAY_RouletteSquad
 	
 	[Attribute("", UIWidgets.EditBox, desc: "How many players are ONLY in this element prefab above?")]
 	protected int playerCount;
-	
-	[Attribute("", UIWidgets.EditBox, desc: "Manual callsign")]
-	protected string callsign;
-	
+
 	ResourceName GetPrefab()
 	{
 		return prefab;
@@ -136,11 +141,6 @@ class GRAY_RouletteSquad
 	int GetPlayerCount()
 	{
 		return playerCount;
-	}
-	
-	string GetCallsign()
-	{
-		return callsign;
 	}
 }
 
