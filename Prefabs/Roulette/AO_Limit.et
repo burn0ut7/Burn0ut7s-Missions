@@ -5,6 +5,9 @@ PolylineShapeEntity : "{85222A2744768C81}Prefabs/Logic/AOLimit/TILW_AOLimit.et" 
    m_visibility ALL
    m_lineWidth 3
   }
+  TILW_MapShapeComponent "{6508F54F9B461198}" {
+   Enabled 1
+  }
  }
  coords 4539.573 14.438 10919.991
 }

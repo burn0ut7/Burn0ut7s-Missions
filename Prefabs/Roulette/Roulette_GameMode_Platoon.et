@@ -1,22 +1,217 @@
-GenericEntity : "{62C0DEE2E41026EC}Prefabs/Roulette/Roulette_GameMode.et" {
- ID "64B73C0190BC6C23"
- coords 6324.168 5.252 9654.25
+GenericEntity {
+ ID "64B8FA30ED384DF3"
+ coords 4973.794 128.955 7775.881
  {
-  PS_GameModeCoop {
-   ID "64B73C01EE75E15E"
+  SCR_AIWorld : "{70CCCF16487C927F}Prefabs/AI/SCR_AIWorld_Eden.et" {
+   ID "64B8FA30ED384DE5"
+   coords -105.32 -99.321 2827.686
+  }
+  PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+   ID "64B8FA30ED384DEF"
+   coords -105.771 -100.06 2824.062
+  }
+  PS_GameModeCoop PS_GameMode_Lobby_TILWMF1 : "{4CFD54745CD45673}Prefabs/MP/Modes/PS_GameMode_Lobby_TILWMF.et" {
+   ID "64B8FA30ED384DE2"
    components {
     SCR_TimeAndWeatherHandlerComponent "{5EE3229927D4D2F5}" {
-     m_bRandomStartingDaytimeRange 1
      m_iRangeHoursStart 5
      m_iRangeHoursEnd 21
      m_bRandomStartingWeather 1
      m_bRandomWeatherChanges 1
     }
    }
+   coords -96.573 -100.372 2823.683
+   {
+    SCR_FactionManager "632E4DCFA68EAEC7" {
+     ID "5ED9088735FF2D8B"
+     Factions {
+      SCR_Faction "{56DEAC40D2DBC8B1}" {
+       m_CallsignInfo SCR_FactionCallsignInfo "{5DA0F2A6677ADA9E}" {
+        m_aCompanyNames {
+         SCR_CallsignInfo "{55CCB792CD021D5C}" {
+          m_sCallsign "A Co."
+         }
+         SCR_CallsignInfo "{55CCB792CCD598D3}" {
+          m_sCallsign "B Co."
+         }
+         SCR_CallsignInfo "{55CCB792CC9C7AD6}" {
+          m_sCallsign "C Co."
+         }
+         SCR_CallsignInfo "{55CCB792CCB4D441}" {
+          m_sCallsign "D Co."
+         }
+        }
+        m_aPlatoonNames {
+         SCR_CallsignInfo "{55CCB792CE6E998D}" {
+          m_sCallsign "1 Plt."
+         }
+         SCR_CallsignInfo "{55CCB792CE18FB44}" {
+          m_sCallsign "2 Plt."
+         }
+         SCR_CallsignInfo "{55CCB792CE02ECFA}" {
+          m_sCallsign "3 Plt."
+         }
+         SCR_CallsignInfo "{55CCB792CE2A44BD}" {
+          m_sCallsign "4 Plt."
+         }
+        }
+        m_aSquadNames {
+         SCR_CallsignInfo "{55CCB792D10AD8F4}" {
+          m_sCallsign ""
+         }
+         SCR_CallsignInfo "{55CCB792D13759D8}" {
+          m_sCallsign "| 6 HQ"
+         }
+         SCR_CallsignInfo "{55CCB792D1218E95}" {
+          m_sCallsign "| 1"
+         }
+         SCR_CallsignInfo "{55CCB792D0C8B3CE}" {
+          m_sCallsign "| 2"
+         }
+         SCR_CallsignInfo "{64E2F896A8C154A9}" {
+          m_sCallsign "| 3"
+         }
+         SCR_CallsignInfo "{64E2F896A8E698B6}" {
+          m_sCallsign "| 4"
+         }
+         SCR_CallsignInfo "{6530E15922496102}" {
+          m_sCallsign "| 5"
+         }
+        }
+        m_sCallsignGroupFormat "%1 | %2 %3"
+       }
+      }
+      SCR_Faction "{56DEAC40D3C2E623}" {
+       m_CallsignInfo SCR_FactionCallsignInfo "{5DA0F2A67DFB8809}" {
+        m_bIsAssignedRandomly 0
+       }
+      }
+      SCR_Faction "{5978B9CE6585BBE8}" {
+       m_aFriendlyFactionsIds {
+       }
+       m_CallsignInfo SCR_FactionCallsignInfo "{5977478D568C093C}" {
+        m_bIsAssignedRandomly 0
+        m_iCompanyOverflowIndex 8
+       }
+      }
+      SCR_Faction "{5CC8DE37E1FF0F7A}" {
+       m_aFriendlyFactionsIds {
+       }
+       m_CallsignInfo SCR_FactionCallsignInfo "{5CC8BB97E017CDBC}" {
+        m_aPlatoonNames {
+         SCR_CallsignInfo "{55CCB792CE6E998D}" {
+          m_sCallsign "1"
+         }
+         SCR_CallsignInfo "{55CCB792CE18FB44}" {
+          m_sCallsign "2"
+         }
+         SCR_CallsignInfo "{55CCB792CE02ECFA}" {
+          m_sCallsign "3"
+         }
+         SCR_CallsignInfo "{55CCB792CE2A44BD}" {
+          m_sCallsign "4"
+         }
+         SCR_CallsignInfo "{64E30A2DAD85F2C6}" {
+          m_sCallsign "5"
+         }
+         SCR_CallsignInfo "{64E30A2DADB13027}" {
+          m_sCallsign "6"
+         }
+         SCR_CallsignInfo "{64E30A2DADCF2A3D}" {
+          m_sCallsign "7"
+         }
+         SCR_CallsignInfo "{64E30A2DADECAB48}" {
+          m_sCallsign "8"
+         }
+         SCR_CallsignInfo "{64E30A2DAE0DE6FD}" {
+          m_sCallsign "9"
+         }
+        }
+        m_aSquadNames {
+         SCR_CallsignInfo "{55CCB792D10AD8F4}" {
+          m_sCallsign ""
+         }
+         SCR_CallsignInfo "{55CCB792D13759D8}" {
+          m_sCallsign "6"
+         }
+         SCR_CallsignInfo "{55CCB792D1218E95}" {
+          m_sCallsign "1"
+         }
+         SCR_CallsignInfo "{55CCB792D0C8B3CE}" {
+          m_sCallsign "2"
+         }
+         SCR_CallsignInfo "{64E30A2DA4FE4811}" {
+          m_sCallsign "3"
+         }
+         SCR_CallsignInfo "{64E30A2DA52DD54C}" {
+          m_sCallsign "4"
+         }
+         SCR_CallsignInfo "{656C38423228C420}" {
+          m_sCallsign "5"
+         }
+        }
+       }
+      }
+      SCR_Faction "{61500924662B6062}" {
+       m_aFriendlyFactionsIds {
+       }
+      }
+      SCR_Faction "{648D46336748B246}" {
+       m_aFriendlyFactionsIds {
+       }
+      }
+      SCR_Faction "{64AA098AEA5B1498}" {
+       m_aFriendlyFactionsIds {
+       }
+       m_CallsignInfo SCR_FactionCallsignInfo "{64AA098204A61453}" {
+        m_aSquadNames {
+         SCR_CallsignInfo "{55CCB792D10AD8F4}" {
+          m_sCallsign "COY"
+         }
+         SCR_CallsignInfo "{55CCB792D13759D8}" {
+          m_sCallsign "HQ"
+         }
+         SCR_CallsignInfo "{55CCB792D1218E95}" {
+          m_sCallsign "Alpha"
+         }
+         SCR_CallsignInfo "{55CCB792D0C8B3CE}" {
+          m_sCallsign "Bravo"
+         }
+         SCR_CallsignInfo "{61677618371B4C91}" {
+          m_sCallsign "Charlie"
+         }
+         SCR_CallsignInfo "{656C384270A96C6A}" {
+          m_sCallsign "Whiskey"
+         }
+        }
+       }
+      }
+      SCR_Faction "{652F615735715119}" {
+       m_aFriendlyFactionsIds {
+       }
+      }
+     }
+    }
+   }
   }
-  TILW_MissionFrameworkEntity {
-   ID "64B73C01EE75E159"
-   m_suppressGameEnd 0
+  GRAY_RouletteManager : "{3E343558288C94CF}Prefabs/Roulette/Roulette_Manager.et" {
+   ID "64B8FA30ED384DE6"
+   coords -96.573 -100.372 2823.682
+   m_breifings {
+    GRAY_RouletteBriefingData "{648D13AF4F7A2856}" {
+    }
+    GRAY_RouletteBriefingData "{648D13AF4F7A2840}" {
+    }
+   }
+   m_teamsList {
+    GRAY_RouletteTeamData "{648D13AF4F7A4DBF}" {
+     squadCallsignsOnly 1
+    }
+   }
+  }
+  TILW_MissionFrameworkEntity : "{8F846D0FD5D6EA51}Prefabs/MP/TILW_MissionFramework.et" {
+   ID "64B8FA30ED384DF9"
+   coords -99.273 -100.373 2824.228
   }
  }
 }

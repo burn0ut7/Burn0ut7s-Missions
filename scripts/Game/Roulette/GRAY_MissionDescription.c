@@ -22,18 +22,6 @@ class GRAY_MissionDescription : PS_MissionDescription
 	{
 		m_bShowForAnyFaction = show;
 	}
-
-	void SetOrder(int order)
-	{
-		RPC_SetOrder(order);
-		Rpc(RPC_SetOrder, order);
-	}
-	
-	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
-	void RPC_SetOrder(int order)
-	{
-		m_iOrder = order;
-	}
 	
 	override bool RplSave(ScriptBitWriter writer)
 	{

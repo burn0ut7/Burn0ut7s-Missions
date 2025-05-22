@@ -12,7 +12,10 @@ class GRAY_RouletteAD
 	void Scenario()
 	{
 		Print("GRAY_RouletteAD.Scenario | Attack and Defend selected!");
-
+		
+		// Random Time
+		rouletteManager.SetRandomTime();
+		
 		// Find Objective
 		float objectiveSize;
 		vector objectivePosition = FindObjective(objectiveSize);
@@ -34,21 +37,25 @@ class GRAY_RouletteAD
 			return Scenario();
 		
 		// Spawn teams
+		float ratio = (teams[0].GetStrength() - teams[1].GetStrength()) + rouletteManager.m_ratio;
+		Print("GRAY_RouletteAD.Scenario ratio = "+ ratio);
+
 		map<string, int> defenderCounts;
-		int defenderRatio = rouletteManager.m_minPlayerCount / (1 + rouletteManager.m_ratio);
-		int defenderCount = rouletteManager.SpawnTeam(defenderCounts, teams[0], defenderSpawn, defenderRatio, defenderRatio);
-		Print("GRAY_RouletteAD.Scenario defenderCount = "+ defenderCount);
+		int defenderRatio = Math.AbsInt(rouletteManager.m_minPlayerCount / (1 + ratio));
+		int defenderCount = rouletteManager.SpawnTeam(defenderCounts, teams[0], defenderSpawn, defenderRatio, defenderRatio - 5);
 		
 		map<string, int> attackerCounts;
-		int attackerRatio = defenderRatio * rouletteManager.m_ratio;
+		int attackerRatio = Math.AbsInt(defenderCount * ratio);
 		int attackerCount = rouletteManager.SpawnTeam(attackerCounts, teams[1], attackerSpawn, attackerRatio, attackerRatio - 5);
-		Print("GRAY_RouletteAD.Scenario attackerCount = "+ attackerCount);
 		
 		// Setup Briefing
 		SetupBriefing(teams[0], defenderCounts, teams[1], attackerCounts);
 		
 		// Setup AO Limit
 		rouletteManager.SetupAOLimit(objectivePosition, attackerSpawn, rouletteManager.m_aoLimitWidth);
+		
+		// Setup Objective
+		rouletteManager.SetupObjective(objectivePosition, objectiveSize, teams[1]);
 		
 		// Setup Markers
 		SetupMarkers(defenderSpawn, attackerSpawn, objectivePosition, objectiveSize);
@@ -242,74 +249,5 @@ class GRAY_RouletteAD
 		marker = rouletteManager.SpawnMarker(attackerSpawn, attackers.GetFactionFlag(), "", false);
 		marker.SetAngles(Vector(0, 90, 0));
 		marker.SetSize(40);
-	}
-}
-
-modded class SCR_AIGroup
-{
-	string m_customCallsign = string.Empty;
-	
-	override void GetCallsigns(out string company, out string platoon, out string squad, out string character, out string format)
-	{
-		if(m_customCallsign != string.Empty)
-		{
-			format = m_customCallsign;	
-			return;
-		}
-		
-		super.GetCallsigns(company, platoon, squad, character, format);
-	}
-}
-
-modded class PS_PlayableManager
-{	
-	override void RegisterPlayable(PS_PlayableComponent playableComponent)
-	{
-		//PrintFormat("RegisterPlayable - %1", playableComponent.GetOwner());
-		
-		RplId playableId = playableComponent.GetId();
-		if (m_aPlayables.Contains(playableId))
-			return;
-		m_aPlayables[playableId] = playableComponent;
-		
-		GetGame().GetCallqueue().Call(OnPlayableRegisteredLateInvoke, playableId, playableComponent);
-		GetGame().GetCallqueue().Remove(UpdatePlayablesSortedWrap);
-		GetGame().GetCallqueue().Remove(UpdatePlayablesSorted);
-		GetGame().GetCallqueue().Call(UpdatePlayablesSortedWrap);
-		
-		if (Replication.IsServer())
-		{
-			SCR_ChimeraCharacter playableCharacter = SCR_ChimeraCharacter.Cast(playableComponent.GetOwner());
-			AIControlComponent aiControl = AIControlComponent.Cast(playableCharacter.FindComponent(AIControlComponent));
-			SCR_AIGroup playableGroup =  SCR_AIGroup.Cast(aiControl.GetControlAIAgent().GetParentGroup());
-			SCR_AIGroup playerGroup;
-			
-			if (!playableGroup)
-				return;
-			
-			if (!playableGroup.IsSlave())
-			{
-				SCR_GroupsManagerComponent groupsManagerComponent = SCR_GroupsManagerComponent.GetInstance();
-				playerGroup = groupsManagerComponent.CreateNewPlayableGroup(playableGroup.GetFaction());
-				playerGroup.SetSlave(playableGroup);
-				playerGroup.SetMaxMembers(playableGroup.m_aUnitPrefabSlots.Count());
-				playerGroup.SetCustomName(playableGroup.GetCustomName(), -1);
-								
-				playableGroup.SetCanDeleteIfNoPlayer(false);
-				playerGroup.SetCanDeleteIfNoPlayer(false);
-				playableGroup.SetDeleteWhenEmpty(false);
-				playerGroup.SetDeleteWhenEmpty(false);
-			} else {
-				playerGroup = playableGroup.GetMaster();
-			}
-			
-			if(playableGroup.m_customCallsign != string.Empty)
-			{
-				playerGroup.m_customCallsign = playableGroup.m_customCallsign;
-			}
-			
-			SetPlayablePlayerGroupId(playableId, playerGroup.GetGroupID());
-			GetGame().GetCallqueue().CallLater(UpdateGroupCallsigne, 0, false, playableId, playerGroup, playableGroup)
-		}
 	}
 }

@@ -1,0 +1,126 @@
+GCC_Arty : "{6C38A36F9C37A967}Prefabs/Modules/Off_Map_Arty.et" {
+ ID "652B743AC00780BF"
+ coords 6325.144 5.601 9657.845
+ m_artyRounds {
+  GCC_ArtyData "{652B743A90CE7EE7}" {
+   m_shellPrefab "{5E1C49E2DFCDBE8F}Prefabs/Weapons/Ammo/Ammo_Shell_155mm_HE_M107.et"
+   m_roundName "155mm HE M107"
+   m_allowedFrequencies {
+    48000
+   }
+   m_roundCount 24
+   m_gunCount 4
+   m_roundReload 10
+   m_roundDispersion 75
+  }
+  GCC_ArtyData "{652F1A2878F8ECEA}" {
+   m_shellPrefab "{F7807293E94D3C88}Prefabs/Weapons/Ammo/Ammo_Shell_81mm_Smoke_M819.et"
+   m_roundName "155mm Smoke M110"
+   m_factionKeys {
+    "US"
+   }
+   m_allowedFrequencies {
+    48000
+   }
+   m_gunCount 4
+   m_roundReload 10
+   m_roundDispersion 50
+  }
+  GCC_ArtyData "{652F1A287B05B60D}" {
+   m_shellPrefab "{863D1FE82506BD56}Prefabs/Weapons/Ammo/FlareEffect_81mm_M853A1_White.et"
+   m_roundName "155mm Illum M485A1"
+   m_factionKeys {
+    "US"
+   }
+   m_allowedFrequencies {
+    48000
+   }
+   m_roundCount 24
+   m_gunCount 4
+   m_roundReload 10
+   m_roundDispersion 75
+  }
+  GCC_ArtyData "{652F1A287B45763A}" {
+   m_shellPrefab "{5E1C49E2DFCDBE8F}Prefabs/Weapons/Ammo/Ammo_Shell_155mm_HE_M107.et"
+   m_roundName "152mm HE OF-540"
+   m_factionKeys {
+    "RU" "USSR"
+   }
+   m_allowedFrequencies {
+    42000
+   }
+   m_roundCount 24
+   m_gunCount 4
+   m_roundReload 10
+   m_roundDispersion 75
+  }
+  GCC_ArtyData "{652F1A2BE641A6C0}" {
+   m_shellPrefab "{A544A2C131DE2C64}Prefabs/Weapons/Ammo/Ammo_Shell_82mm_Smoke_D832DU.et"
+   m_roundName "152mm Smoke D-832"
+   m_factionKeys {
+    "RU" "USSR"
+   }
+   m_allowedFrequencies {
+    42000
+   }
+   m_gunCount 4
+   m_roundReload 10
+   m_roundDispersion 50
+  }
+  GCC_ArtyData "{652F1A2C77CE3283}" {
+   m_shellPrefab "{863D1FE82506BD56}Prefabs/Weapons/Ammo/FlareEffect_81mm_M853A1_White.et"
+   m_roundName "152mm Illum Zvezda-S"
+   m_factionKeys {
+    "RU" "USSR"
+   }
+   m_allowedFrequencies {
+    42000
+   }
+   m_roundCount 24
+   m_gunCount 4
+   m_roundReload 10
+   m_roundDispersion 75
+  }
+  GCC_ArtyData "{652F1A26A318125F}" {
+   m_shellPrefab "{5E1C49E2DFCDBE8F}Prefabs/Weapons/Ammo/Ammo_Shell_155mm_HE_M107.et"
+   m_roundName "155mm HE M107"
+   m_factionKeys {
+    "UK"
+   }
+   m_allowedFrequencies {
+    46000
+   }
+   m_roundCount 24
+   m_gunCount 4
+   m_roundReload 10
+   m_roundDispersion 75
+  }
+  GCC_ArtyData "{652F1A26A2291D3A}" {
+   m_shellPrefab "{A544A2C131DE2C64}Prefabs/Weapons/Ammo/Ammo_Shell_82mm_Smoke_D832DU.et"
+   m_roundName "155mm Smoke M110"
+   m_factionKeys {
+    "UK"
+   }
+   m_allowedFrequencies {
+    46000
+   }
+   m_gunCount 4
+   m_roundReload 10
+   m_roundDispersion 50
+  }
+  GCC_ArtyData "{652F1A26A269E0E9}" {
+   m_shellPrefab "{863D1FE82506BD56}Prefabs/Weapons/Ammo/FlareEffect_81mm_M853A1_White.et"
+   m_roundName "155mm Illum M485A1"
+   m_factionKeys {
+    "UK"
+   }
+   m_allowedFrequencies {
+    46000
+   }
+   m_roundCount 24
+   m_gunCount 4
+   m_roundReload 10
+   m_roundDispersion 75
+  }
+ }
+}

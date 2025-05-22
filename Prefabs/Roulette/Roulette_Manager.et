@@ -1,11 +1,13 @@
 GRAY_RouletteManager {
  ID "648EEA4374299678"
  coords 0 0 0
+ m_ratio 1.5
+ m_aoLimitWidth 900
  m_breifings {
   GRAY_RouletteBriefingData "{648D13AF4F7A2809}" {
    title "Briefing: Notes"
    description "Attackers: %2"\
-   "Defenders:  %1"\
+   "Defenders: %1"\
    ""\
    "VI. End Conditions:"\
    "Attackers capture Marked objective(red circle)"\
@@ -16,8 +18,8 @@ GRAY_RouletteManager {
    title "Briefing: Situation"
    description "I. Situation:"\
    "Everon, 2020."\
-   "Local Time: Day"\
-   "Weather: Clear"\
+   "Local Time: Random(Check top right)"\
+   "Weather: Random"\
    ""\
    "Ia. Friendly Forces:"\
    "%3"\
@@ -38,7 +40,8 @@ GRAY_RouletteManager {
    "Per the slotting screen."\
    ""\
    "V. Service/Support:"\
-   "No Coy/Btn Fire Support."\
+   "None"\
+   ""\
    "No Vehicles."\
    "No Resupply."
    side Defender
@@ -47,8 +50,8 @@ GRAY_RouletteManager {
    title "Briefing: Situation"
    description "I. Situation:"\
    "Everon, 2020."\
-   "Local Time: Day"\
-   "Weather: Clear"\
+   "Local Time: Random(Check top right)"\
+   "Weather: Random"\
    ""\
    "Ia. Friendly Forces:"\
    "%4"\
@@ -69,90 +72,77 @@ GRAY_RouletteManager {
    "Per the slotting screen."\
    ""\
    "V. Service/Support:"\
-   "No Coy/Btn Fire Support."\
+   "None"\
+   ""\
    "No Vehicles."\
    "No Resupply."
    side Attacker
   }
  }
- m_maxBuildingCount 999
+ m_maxBuildingCount 9999
  m_buildingBlackListKeyword {
-  "Greenhouse" "Pier" "Wall" "Calvary" "HouseRuin" "Hotbed" "Bollard" "Grave"
+  "Greenhouse" "Pier" "Wall" "Calvary" "HouseRuin" "Hotbed" "Bollard" "Grave" "Bridge"
  }
  m_teamsList {
   GRAY_RouletteTeamData "{648D13AF4F7A4DBF}" {
    name "Soviet VDV 80s"
    factionKey "USSR"
-   scopeType None
    companies {
     GRAY_RouletteCompany "{648D13AF4F7A4DA5}" {
      prefab "{8E4BE6AA99B15919}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_CoyHQ_P.et"
      playerCount 3
-     callsign "Aktiv-10 HQ"
      platoons {
       GRAY_RoulettePlatoon "{648D13AF4F7A2886}" {
        prefab "{C724911C8224C5EF}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_PHQ_P.et"
        playerCount 4
-       callsign "Aktiv-11 HQ"
        squads {
         GRAY_RouletteSquad "{648D13AF4F7A289D}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-11"
         }
         GRAY_RouletteSquad "{648D241EB545E871}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-12"
         }
         GRAY_RouletteSquad "{648D241EB4644285}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-13"
         }
        }
       }
       GRAY_RoulettePlatoon "{648D241E82A90B22}" {
        prefab "{C724911C8224C5EF}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_PHQ_P.et"
        playerCount 4
-       callsign "Aktiv-14 HQ"
        squads {
         GRAY_RouletteSquad "{648D13AF4F7A289D}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-14"
         }
         GRAY_RouletteSquad "{648D241EB545E871}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-15"
         }
         GRAY_RouletteSquad "{648D241EB4644285}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-16"
         }
        }
       }
       GRAY_RoulettePlatoon "{648D241E82C5ED68}" {
        prefab "{C724911C8224C5EF}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_PHQ_P.et"
        playerCount 4
-       callsign "Aktiv-17 HQ"
        squads {
         GRAY_RouletteSquad "{648D13AF4F7A289D}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-17"
         }
         GRAY_RouletteSquad "{648D241EB545E871}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-18"
         }
         GRAY_RouletteSquad "{648D241EB4644285}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-19"
         }
        }
       }
@@ -161,71 +151,58 @@ GRAY_RouletteManager {
     GRAY_RouletteCompany "{648D627128F5B752}" {
      prefab "{8E4BE6AA99B15919}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_CoyHQ_P.et"
      playerCount 3
-     callsign "Aktiv-20 HQ"
      platoons {
       GRAY_RoulettePlatoon "{648D13AF4F7A2886}" {
        prefab "{C724911C8224C5EF}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_PHQ_P.et"
        playerCount 4
-       callsign "Aktiv-21 HQ"
        squads {
         GRAY_RouletteSquad "{648D13AF4F7A289D}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-21"
         }
         GRAY_RouletteSquad "{648D241EB545E871}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-22"
         }
         GRAY_RouletteSquad "{648D241EB4644285}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-23"
         }
        }
       }
       GRAY_RoulettePlatoon "{648D241E82A90B22}" {
        prefab "{C724911C8224C5EF}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_PHQ_P.et"
        playerCount 4
-       callsign "Aktiv-24 HQ"
        squads {
         GRAY_RouletteSquad "{648D13AF4F7A289D}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-24"
         }
         GRAY_RouletteSquad "{648D241EB545E871}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-25"
         }
         GRAY_RouletteSquad "{648D241EB4644285}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-26"
         }
        }
       }
       GRAY_RoulettePlatoon "{648D241E82C5ED68}" {
        prefab "{C724911C8224C5EF}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_PHQ_P.et"
        playerCount 4
-       callsign "Aktiv-27 HQ"
        squads {
         GRAY_RouletteSquad "{648D13AF4F7A289D}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-27"
         }
         GRAY_RouletteSquad "{648D241EB545E871}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-28"
         }
         GRAY_RouletteSquad "{648D241EB4644285}" {
          prefab "{953055A03391C1B2}Prefabs/Groups/OPFOR/USSR/SovietArmy_Airborne_1983/P/Group_USSR_VDV_Squad_P.et"
          playerCount 6
-         callsign "Aktiv-29"
         }
        }
       }
@@ -236,79 +213,125 @@ GRAY_RouletteManager {
   GRAY_RouletteTeamData "{648D75588DE9B5A4}" {
    name "US Army 80s"
    factionKey "US"
-   scopeType None
    versusBlacklist {
     "RHS_USAF"
    }
    companies {
     GRAY_RouletteCompany "{648D7558C5F28BE8}" {
-     prefab "{619A2B1910FCE9A0}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleCoyHQ_P.et"
+     prefab "{FE3E22FC1F997419}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleCoyHQ_P.et"
      playerCount 3
-     callsign "Atlas"
      platoons {
       GRAY_RoulettePlatoon "{648D7558C7D3F7B6}" {
-       prefab "{C42280A6985BFE69}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RiflePHQ_P.et"
-       playerCount 10
-       callsign "1'6 HQ"
+       prefab "{7516B5D9A18D5FCA}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RiflePHQ_P.et"
+       playerCount 4
        squads {
         GRAY_RouletteSquad "{648D7558C9F32AA7}" {
-         prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
-         playerCount 11
-         callsign "1'1"
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
         }
         GRAY_RouletteSquad "{648D755828D68AAF}" {
          prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
-         playerCount 11
-         callsign "1'2"
+         playerCount 7
         }
-        GRAY_RouletteSquad "{648D75582BBB6A5A}" {
-         prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
-         playerCount 11
-         callsign "1'3"
+        GRAY_RouletteSquad "{656C215A84DB87C8}" {
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
         }
        }
       }
-      GRAY_RoulettePlatoon "{648D755830066110}" {
-       prefab "{C42280A6985BFE69}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RiflePHQ_P.et"
-       playerCount 10
-       callsign "2'6 HQ"
+      GRAY_RoulettePlatoon "{6547022C7A3ED24D}" {
+       prefab "{7516B5D9A18D5FCA}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RiflePHQ_P.et"
+       playerCount 4
        squads {
         GRAY_RouletteSquad "{648D7558C9F32AA7}" {
-         prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
-         playerCount 11
-         callsign "2'1"
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
         }
         GRAY_RouletteSquad "{648D755828D68AAF}" {
          prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
-         playerCount 11
-         callsign "2'2"
+         playerCount 7
         }
-        GRAY_RouletteSquad "{648D75582BBB6A5A}" {
-         prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
-         playerCount 11
-         callsign "2'3"
+        GRAY_RouletteSquad "{656C215A84DB87C8}" {
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
         }
        }
       }
-      GRAY_RoulettePlatoon "{648D755830283C4D}" {
-       prefab "{C42280A6985BFE69}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RiflePHQ_P.et"
-       playerCount 10
-       callsign "3'6 HQ"
+      GRAY_RoulettePlatoon "{6547022C7A7C391A}" {
+       prefab "{7516B5D9A18D5FCA}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RiflePHQ_P.et"
+       playerCount 4
        squads {
         GRAY_RouletteSquad "{648D7558C9F32AA7}" {
-         prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
-         playerCount 11
-         callsign "3'1"
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
         }
         GRAY_RouletteSquad "{648D755828D68AAF}" {
          prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
-         playerCount 11
-         callsign "3'2"
+         playerCount 7
         }
-        GRAY_RouletteSquad "{648D75582BBB6A5A}" {
+        GRAY_RouletteSquad "{656C215A84DB87C8}" {
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
+        }
+       }
+      }
+     }
+    }
+    GRAY_RouletteCompany "{656C215A9560CD37}" {
+     prefab "{FE3E22FC1F997419}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleCoyHQ_P.et"
+     playerCount 3
+     platoons {
+      GRAY_RoulettePlatoon "{648D7558C7D3F7B6}" {
+       prefab "{7516B5D9A18D5FCA}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RiflePHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{648D7558C9F32AA7}" {
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{648D755828D68AAF}" {
          prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
-         playerCount 11
-         callsign "3'3"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C215A84DB87C8}" {
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{6547022C7A3ED24D}" {
+       prefab "{7516B5D9A18D5FCA}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RiflePHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{648D7558C9F32AA7}" {
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{648D755828D68AAF}" {
+         prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C215A84DB87C8}" {
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{6547022C7A7C391A}" {
+       prefab "{7516B5D9A18D5FCA}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RiflePHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{648D7558C9F32AA7}" {
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{648D755828D68AAF}" {
+         prefab "{43DE722B3E3F4C24}Prefabs/Groups/BLUFOR/US/Army_1980_Rifles/P/Group_US_Army_1980_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C215A84DB87C8}" {
+         prefab "{E0D19E3A0BC29C62}Prefabs/Groups/BLUFOR/US/Army_1985_Rifles/P/Group_US_Army_1985_RifleSquad_P.et"
+         playerCount 7
         }
        }
       }
@@ -319,7 +342,7 @@ GRAY_RouletteManager {
   GRAY_RouletteTeamData "{648E0394C8434058}" {
    name "US Army Modern"
    factionKey "RHS_USAF"
-   scopeType All
+   strength 1.2
    versusBlacklist {
     "US"
    }
@@ -327,71 +350,58 @@ GRAY_RouletteManager {
     GRAY_RouletteCompany "{648D7558C5F28BE8}" {
      prefab "{50405007E4967EEE}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RiflePHQ_P.et"
      playerCount 5
-     callsign "Atlas"
      platoons {
       GRAY_RoulettePlatoon "{648D7558C7D3F7B6}" {
        prefab "{50405007E4967EEE}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RiflePHQ_P.et"
        playerCount 5
-       callsign "1'6 HQ"
        squads {
         GRAY_RouletteSquad "{648D7558C9F32AA7}" {
          prefab "{6E4EF673050EC9D3}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RifleSquad_P.et"
          playerCount 9
-         callsign "1'1"
         }
         GRAY_RouletteSquad "{648D755828D68AAF}" {
          prefab "{6E4EF673050EC9D3}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RifleSquad_P.et"
          playerCount 9
-         callsign "1'2"
         }
         GRAY_RouletteSquad "{648D75582BBB6A5A}" {
          prefab "{F6AD06DE653481AC}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_WeaponsSquad_P.et"
          playerCount 9
-         callsign "1'3"
         }
        }
       }
       GRAY_RoulettePlatoon "{648D755830066110}" {
        prefab "{50405007E4967EEE}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RiflePHQ_P.et"
        playerCount 5
-       callsign "2'6 HQ"
        squads {
         GRAY_RouletteSquad "{648D7558C9F32AA7}" {
          prefab "{6E4EF673050EC9D3}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RifleSquad_P.et"
          playerCount 9
-         callsign "2'1"
         }
         GRAY_RouletteSquad "{648D755828D68AAF}" {
          prefab "{6E4EF673050EC9D3}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RifleSquad_P.et"
          playerCount 9
-         callsign "2'2"
         }
         GRAY_RouletteSquad "{648D75582BBB6A5A}" {
          prefab "{F6AD06DE653481AC}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_WeaponsSquad_P.et"
          playerCount 9
-         callsign "2'3"
         }
        }
       }
       GRAY_RoulettePlatoon "{648D755830283C4D}" {
        prefab "{50405007E4967EEE}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RiflePHQ_P.et"
        playerCount 5
-       callsign "3'6 HQ"
        squads {
         GRAY_RouletteSquad "{648D7558C9F32AA7}" {
          prefab "{6E4EF673050EC9D3}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RifleSquad_P.et"
          playerCount 9
-         callsign "3'1"
         }
         GRAY_RouletteSquad "{648D755828D68AAF}" {
          prefab "{6E4EF673050EC9D3}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_RifleSquad_P.et"
          playerCount 9
-         callsign "3'2"
         }
         GRAY_RouletteSquad "{648D75582BBB6A5A}" {
          prefab "{F6AD06DE653481AC}Prefabs/Groups/BLUFOR/US/Army_2020_Rifles/P/Group_USA_2020_WeaponsSquad_P.et"
          playerCount 9
-         callsign "3'3"
         }
        }
       }
@@ -402,76 +412,958 @@ GRAY_RouletteManager {
   GRAY_RouletteTeamData "{648E1369925E6C06}" {
    name "UK 80s"
    factionKey "UK"
-   scopeType None
    companies {
     GRAY_RouletteCompany "{648E13690E0AB829}" {
-     prefab "{82816321F3142CDB}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleCoyHQ_P.et"
+     prefab "{82816321F3142CDB}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleCoyHQ_P.et"
      playerCount 4
-     callsign "10A"
      platoons {
       GRAY_RoulettePlatoon "{648E13691142EA93}" {
-       prefab "{F5284BF958E85D8B}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RiflePHQ_P.et"
+       prefab "{F5284BF958E85D8B}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RiflePHQ_P.et"
        playerCount 3
-       callsign "11A  |  11B"
        squads {
         GRAY_RouletteSquad "{648E136917A208A5}" {
-         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleSection_P.et"
+         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleSection_P.et"
          playerCount 8
-         callsign "11C"
         }
         GRAY_RouletteSquad "{648E136B93009DC3}" {
-         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleSection_P.et"
+         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleSection_P.et"
          playerCount 8
-         callsign "11E"
         }
         GRAY_RouletteSquad "{648E136B9220C820}" {
-         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleSection_P.et"
+         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleSection_P.et"
          playerCount 8
-         callsign "11F"
         }
        }
       }
       GRAY_RoulettePlatoon "{648E136BEF5C77DF}" {
-       prefab "{F5284BF958E85D8B}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RiflePHQ_P.et"
+       prefab "{F5284BF958E85D8B}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RiflePHQ_P.et"
        playerCount 3
-       callsign "12A  |  12B"
        squads {
         GRAY_RouletteSquad "{648E136917A208A5}" {
-         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleSection_P.et"
+         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleSection_P.et"
          playerCount 8
-         callsign "12C"
         }
         GRAY_RouletteSquad "{648E136B93009DC3}" {
-         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleSection_P.et"
+         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleSection_P.et"
          playerCount 8
-         callsign "12E"
         }
         GRAY_RouletteSquad "{648E136B9220C820}" {
-         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleSection_P.et"
+         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleSection_P.et"
          playerCount 8
-         callsign "12F"
         }
        }
       }
       GRAY_RoulettePlatoon "{648E136BEE0900C0}" {
-       prefab "{F5284BF958E85D8B}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RiflePHQ_P.et"
+       prefab "{F5284BF958E85D8B}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RiflePHQ_P.et"
        playerCount 3
-       callsign "13A  |  13B"
        squads {
         GRAY_RouletteSquad "{648E136917A208A5}" {
-         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleSection_P.et"
+         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleSection_P.et"
          playerCount 8
-         callsign "13C"
         }
         GRAY_RouletteSquad "{648E136B93009DC3}" {
-         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleSection_P.et"
+         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleSection_P.et"
          playerCount 8
-         callsign "13E"
         }
         GRAY_RouletteSquad "{648E136B9220C820}" {
-         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Group_UK_1983_REG_RifleSection_P.et"
+         prefab "{6E5FAA403D1014FF}Prefabs/Groups/BLUFOR/British Forces/1983/P/Light Infantry/Group_UK_1983_REG_RifleSection_P.et"
          playerCount 8
-         callsign "13F"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  GRAY_RouletteTeamData "{656C1408265E3C8B}" {
+   name "Insurgents"
+   factionKey "GC_INSURGENT"
+   strength 1.05
+   companies {
+    GRAY_RouletteCompany "{656C14083E4C2287}" {
+     prefab "{0A0D72CDE16A9A9D}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_CoyHQ_P.et.et"
+     playerCount 2
+     platoons {
+      GRAY_RoulettePlatoon "{656C1408088BCF2B}" {
+       prefab "{B7430DCCC8D6FA05}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C1408174B45D0}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081FF2F5F6}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081EC36688}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C1408665725BB}" {
+       prefab "{B7430DCCC8D6FA05}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C1408174B45D0}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081FF2F5F6}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081EC36688}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140866DD8338}" {
+       prefab "{B7430DCCC8D6FA05}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C1408174B45D0}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081FF2F5F6}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081EC36688}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+     }
+    }
+    GRAY_RouletteCompany "{656C14086A81585E}" {
+     prefab "{0A0D72CDE16A9A9D}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_CoyHQ_P.et.et"
+     playerCount 2
+     platoons {
+      GRAY_RoulettePlatoon "{656C1408088BCF2B}" {
+       prefab "{B7430DCCC8D6FA05}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C1408174B45D0}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081FF2F5F6}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081EC36688}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C1408665725BB}" {
+       prefab "{B7430DCCC8D6FA05}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C1408174B45D0}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081FF2F5F6}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081EC36688}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140866DD8338}" {
+       prefab "{B7430DCCC8D6FA05}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C1408174B45D0}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081FF2F5F6}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C14081EC36688}" {
+         prefab "{80BDE40EE0ADF9E3}Prefabs/Groups/OPFOR/GC_INSURGENT/P/GC_INSURGENT_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  GRAY_RouletteTeamData "{656C14087DB46205}" {
+   name "Militants"
+   factionKey "GC_INSURGENT"
+   strength 1.05
+   companies {
+    GRAY_RouletteCompany "{656C140B87053D1B}" {
+     prefab "{3D708B262E8A46A3}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_PHQ_P.et"
+     playerCount 2
+     platoons {
+      GRAY_RoulettePlatoon "{656C140BAA9D02BA}" {
+       prefab "{3D708B262E8A46A3}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_PHQ_P.et"
+       playerCount 2
+       squads {
+        GRAY_RouletteSquad "{656C140BAE3ED735}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB12C883A}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB018955B}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140BBDF3EC2C}" {
+       prefab "{3D708B262E8A46A3}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_PHQ_P.et"
+       playerCount 2
+       squads {
+        GRAY_RouletteSquad "{656C140BAE3ED735}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB12C883A}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB018955B}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140BBC37A45C}" {
+       prefab "{3D708B262E8A46A3}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_PHQ_P.et"
+       playerCount 2
+       squads {
+        GRAY_RouletteSquad "{656C140BAE3ED735}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB12C883A}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB018955B}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+       }
+      }
+     }
+    }
+    GRAY_RouletteCompany "{656C140B95653D6D}" {
+     prefab "{3D708B262E8A46A3}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_PHQ_P.et"
+     playerCount 2
+     platoons {
+      GRAY_RoulettePlatoon "{656C140BAA9D02BA}" {
+       prefab "{3D708B262E8A46A3}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_PHQ_P.et"
+       playerCount 2
+       squads {
+        GRAY_RouletteSquad "{656C140BAE3ED735}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB12C883A}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB018955B}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140BBDF3EC2C}" {
+       prefab "{3D708B262E8A46A3}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_PHQ_P.et"
+       playerCount 2
+       squads {
+        GRAY_RouletteSquad "{656C140BAE3ED735}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB12C883A}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB018955B}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140BBC37A45C}" {
+       prefab "{3D708B262E8A46A3}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_PHQ_P.et"
+       playerCount 2
+       squads {
+        GRAY_RouletteSquad "{656C140BAE3ED735}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB12C883A}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+        GRAY_RouletteSquad "{656C140BB018955B}" {
+         prefab "{2F2E162C9B835EFB}Prefabs/Groups/OPFOR/GC_INSURGENT/Afghan Insurgents/P/GC_INS_Afghan_Squad_P.et"
+         playerCount 9
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  GRAY_RouletteTeamData "{656C140B0A8496C1}" {
+   name "NVA"
+   factionKey "GC_NVA"
+   squadCallsignsOnly 1
+   companies {
+    GRAY_RouletteCompany "{656C140B12563523}" {
+     prefab "{F8F0C9F6E52CB32A}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_CHQ_NoCrew_P.et"
+     playerCount 3
+     platoons {
+      GRAY_RoulettePlatoon "{656C140B1903E572}" {
+       prefab "{14BF2CFBAD86DA03}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C140B1C319CD1}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B647E5F89}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B6786463A}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140B6DFFC5FF}" {
+       prefab "{14BF2CFBAD86DA03}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C140B1C319CD1}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B647E5F89}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B6786463A}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140B6C3A1A22}" {
+       prefab "{14BF2CFBAD86DA03}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C140B1C319CD1}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B647E5F89}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B6786463A}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+       }
+      }
+     }
+    }
+    GRAY_RouletteCompany "{656C140B733A106A}" {
+     prefab "{F8F0C9F6E52CB32A}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_CHQ_NoCrew_P.et"
+     playerCount 3
+     platoons {
+      GRAY_RoulettePlatoon "{656C140B1903E572}" {
+       prefab "{14BF2CFBAD86DA03}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C140B1C319CD1}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B647E5F89}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B6786463A}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140B6DFFC5FF}" {
+       prefab "{14BF2CFBAD86DA03}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C140B1C319CD1}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B647E5F89}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B6786463A}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C140B6C3A1A22}" {
+       prefab "{14BF2CFBAD86DA03}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C140B1C319CD1}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B647E5F89}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+        GRAY_RouletteSquad "{656C140B6786463A}" {
+         prefab "{462E231DFE748568}Prefabs/Groups/OPFOR/GC_NVA/P/Group_GC_NVA_RifleSquad_P.et"
+         playerCount 7
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  GRAY_RouletteTeamData "{656C215E9CDC36A3}" {
+   name "Takistan Army"
+   factionKey "GC_TKA"
+   strength 1.1
+   companies {
+    GRAY_RouletteCompany "{656C215EEC85682C}" {
+     prefab "{994A8F33FD1AA52B}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_CHQ_P.et"
+     playerCount 3
+     platoons {
+      GRAY_RoulettePlatoon "{656C215EF4177D51}" {
+       prefab "{EE714861ED0AF3AE}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C215EF7D10B8A}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFDC2B0E0}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFCC35573}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2159B95B5DC7}" {
+       prefab "{EE714861ED0AF3AE}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C215EF7D10B8A}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFDC2B0E0}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFCC35573}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2159B9B93282}" {
+       prefab "{EE714861ED0AF3AE}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C215EF7D10B8A}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFDC2B0E0}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFCC35573}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+     }
+    }
+    GRAY_RouletteCompany "{656C2159BAC44E95}" {
+     prefab "{994A8F33FD1AA52B}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_CHQ_P.et"
+     playerCount 3
+     platoons {
+      GRAY_RoulettePlatoon "{656C215EF4177D51}" {
+       prefab "{EE714861ED0AF3AE}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C215EF7D10B8A}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFDC2B0E0}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFCC35573}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2159B95B5DC7}" {
+       prefab "{EE714861ED0AF3AE}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C215EF7D10B8A}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFDC2B0E0}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFCC35573}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2159B9B93282}" {
+       prefab "{EE714861ED0AF3AE}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_PHQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C215EF7D10B8A}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFDC2B0E0}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C215EFCC35573}" {
+         prefab "{17CCF1A4B7F1C3E2}Prefabs/Groups/INDFOR/GC_TKA/New Takistan Army 2012-Present (NTA)/P/Group_GC_NTA_RifleSquad_P.et"
+         playerCount 8
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  GRAY_RouletteTeamData "{656C21596D4C770F}" {
+   name "Canadian Army 1993"
+   factionKey "GC_CAF"
+   strength 1.05
+   companies {
+    GRAY_RouletteCompany "{656C215979744CD3}" {
+     prefab "{4AA6802501A77D09}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_COY_HQ_P.et"
+     playerCount 4
+     platoons {
+      GRAY_RoulettePlatoon "{656C215978C419EE}" {
+       prefab "{446A6B53FBC8673B}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_PLT_HQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C21597A50B0CB}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597DDD051A}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597CDCA620}" {
+         prefab "{09244FD71B50E2E7}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_RifleAT_Sect_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C215955D45388}" {
+       prefab "{446A6B53FBC8673B}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_PLT_HQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C21597A50B0CB}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597DDD051A}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597CDCA620}" {
+         prefab "{09244FD71B50E2E7}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_RifleAT_Sect_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2159571E3BD4}" {
+       prefab "{446A6B53FBC8673B}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_PLT_HQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C21597A50B0CB}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597DDD051A}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597CDCA620}" {
+         prefab "{09244FD71B50E2E7}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_RifleAT_Sect_P.et"
+         playerCount 8
+        }
+       }
+      }
+     }
+    }
+    GRAY_RouletteCompany "{656C215959E2C5BA}" {
+     prefab "{4AA6802501A77D09}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_COY_HQ_P.et"
+     playerCount 4
+     platoons {
+      GRAY_RoulettePlatoon "{656C215978C419EE}" {
+       prefab "{446A6B53FBC8673B}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_PLT_HQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C21597A50B0CB}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597DDD051A}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597CDCA620}" {
+         prefab "{09244FD71B50E2E7}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_RifleAT_Sect_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C215955D45388}" {
+       prefab "{446A6B53FBC8673B}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_PLT_HQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C21597A50B0CB}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597DDD051A}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597CDCA620}" {
+         prefab "{09244FD71B50E2E7}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_RifleAT_Sect_P.et"
+         playerCount 8
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2159571E3BD4}" {
+       prefab "{446A6B53FBC8673B}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_PLT_HQ_P.et"
+       playerCount 4
+       squads {
+        GRAY_RouletteSquad "{656C21597A50B0CB}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597DDD051A}" {
+         prefab "{F9D2A10B5E4A9DCE}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_Rifle_Sect_P.et"
+         playerCount 8
+        }
+        GRAY_RouletteSquad "{656C21597CDCA620}" {
+         prefab "{09244FD71B50E2E7}Prefabs/Groups/BLUFOR/GC_CAF/1993 Canadian Army/P/Group_CAF_1993_RifleAT_Sect_P.et"
+         playerCount 8
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  GRAY_RouletteTeamData "{656C215AE0205008}" {
+   name "US Marines 90s"
+   factionKey "US"
+   strength 1.05
+   versusBlacklist {
+    "RHS_USAF"
+   }
+   companies {
+    GRAY_RouletteCompany "{656C215AF5B05BA7}" {
+     prefab "{07C9F3D72826CAB5}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RiflePHQ_P.et"
+     playerCount 3
+     platoons {
+      GRAY_RoulettePlatoon "{656C215AC22317DC}" {
+       prefab "{07C9F3D72826CAB5}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RiflePHQ_P.et"
+       playerCount 3
+       squads {
+        GRAY_RouletteSquad "{656C215AC9DEF26E}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD16B27B4}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD040168F}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C215AD7C4A324}" {
+       prefab "{07C9F3D72826CAB5}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RiflePHQ_P.et"
+       playerCount 3
+       squads {
+        GRAY_RouletteSquad "{656C215AC9DEF26E}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD16B27B4}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD040168F}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C215AD6004B29}" {
+       prefab "{07C9F3D72826CAB5}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RiflePHQ_P.et"
+       playerCount 3
+       squads {
+        GRAY_RouletteSquad "{656C215AC9DEF26E}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD16B27B4}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD040168F}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+     }
+    }
+    GRAY_RouletteCompany "{656C215ADADFE9FB}" {
+     prefab "{07C9F3D72826CAB5}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RiflePHQ_P.et"
+     playerCount 3
+     platoons {
+      GRAY_RoulettePlatoon "{656C215AC22317DC}" {
+       prefab "{07C9F3D72826CAB5}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RiflePHQ_P.et"
+       playerCount 3
+       squads {
+        GRAY_RouletteSquad "{656C215AC9DEF26E}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD16B27B4}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD040168F}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C215AD7C4A324}" {
+       prefab "{07C9F3D72826CAB5}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RiflePHQ_P.et"
+       playerCount 3
+       squads {
+        GRAY_RouletteSquad "{656C215AC9DEF26E}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD16B27B4}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD040168F}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C215AD6004B29}" {
+       prefab "{07C9F3D72826CAB5}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RiflePHQ_P.et"
+       playerCount 3
+       squads {
+        GRAY_RouletteSquad "{656C215AC9DEF26E}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD16B27B4}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+        GRAY_RouletteSquad "{656C215AD040168F}" {
+         prefab "{547A69AC528EE2CB}Prefabs/Groups/BLUFOR/US/Marines_1990_Rifles/Group_US_Marines_1990_RifleSquad_P.et"
+         playerCount 13
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  GRAY_RouletteTeamData "{656C215586A9DD4A}" {
+   name "Modern RU"
+   factionKey "RHS_AFRF"
+   strength 1.2
+   squadCallsignsOnly 1
+   versusBlacklist {
+    "RU"
+   }
+   companies {
+    GRAY_RouletteCompany "{656C215595648CDB}" {
+     prefab "{26E9D09E8E3C0CC0}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_CoyHQ_P.et"
+     playerCount 4
+     platoons {
+      GRAY_RoulettePlatoon "{656C215597381701}" {
+       prefab "{312B31A3D81EF88A}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C215599220F47}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E00D3B1A}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E0F658E4}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2155E6524F68}" {
+       prefab "{312B31A3D81EF88A}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C215599220F47}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E00D3B1A}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E0F658E4}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2155E6990E2F}" {
+       prefab "{312B31A3D81EF88A}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C215599220F47}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E00D3B1A}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E0F658E4}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+       }
+      }
+     }
+    }
+    GRAY_RouletteCompany "{656C2155EB7B88EA}" {
+     prefab "{26E9D09E8E3C0CC0}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_CoyHQ_P.et"
+     playerCount 4
+     platoons {
+      GRAY_RoulettePlatoon "{656C215597381701}" {
+       prefab "{312B31A3D81EF88A}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C215599220F47}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E00D3B1A}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E0F658E4}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2155E6524F68}" {
+       prefab "{312B31A3D81EF88A}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C215599220F47}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E00D3B1A}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E0F658E4}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+       }
+      }
+      GRAY_RoulettePlatoon "{656C2155E6990E2F}" {
+       prefab "{312B31A3D81EF88A}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_PHQ_P.et"
+       playerCount 5
+       squads {
+        GRAY_RouletteSquad "{656C215599220F47}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E00D3B1A}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
+        }
+        GRAY_RouletteSquad "{656C2155E0F658E4}" {
+         prefab "{C4A6E2B567A5EEA3}Prefabs/Groups/OPFOR/RF/AFRF_MotorRifles_2010s/P/AFRF_MotRifles_2020_RifleOnlySquad_P.et"
+         playerCount 6
         }
        }
       }

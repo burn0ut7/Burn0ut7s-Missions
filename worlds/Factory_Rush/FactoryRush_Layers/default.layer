@@ -48,7 +48,7 @@ SCR_AIGroup : "{11C0183AB214797E}Prefabs/Groups/BLUFOR/US/Marines_2020s_Rifles/P
   "{B77C94F57C993C1A}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_CO_P.et" "{14AE33B067DA3083}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_SquadLeader_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{776F5E9622D58CC2}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_TeamLeader_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{776F5E9622D58CC2}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_TeamLeader_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et" "{20B3EDBEFD815FC1}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman_P.et"
  }
 }
-PolylineShapeEntity : "{25C6E66E6C14258D}Prefabs/Logic/CoverMap/Cover_Map.et" {
+PolylineShapeEntity : "{25C6E66E6C14258D}Prefabs/Logic/Map/Cover_Map.et" {
  coords 5036.805 37.034 11064.856
  Points {
   ShapePoint "{64734A228E1CAE52}" {
@@ -119,6 +119,7 @@ PolylineShapeEntity OPFOR : "{85222A2744768C81}Prefabs/Logic/AOLimit/TILW_AOLimi
    m_factionKeys {
     "RHS_AFRF"
    }
+   m_visibility ALL
   }
  }
  coords 4829.653 28 11574.558
@@ -140,6 +141,9 @@ PolylineShapeEntity OPFOR : "{85222A2744768C81}Prefabs/Logic/AOLimit/TILW_AOLimi
 PS_ManuaMarkerRender : "{88D799C5DED9EC70}PrefabsEditable/Markers/EditableMarkerRender.et" {
  coords 4817.577 94.537 11572.466
  angleX -90
+ m_sImageSet "{7CD99D22C7AE8195}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor.imageset"
+ m_sImageSetGlow "{B9356E7B2E974DCD}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor-outline.imageset"
+ m_sQuadName "undefined"
  m_bVisibleForEmptyFaction 1
  m_aHideOnGameModeStates {
   1
@@ -182,24 +186,12 @@ TILW_MissionFrameworkEntity : "{8F846D0FD5D6EA51}Prefabs/MP/TILW_MissionFramewor
   }
  }
 }
-$grp PS_ManualMarker : "{CD85ADE9E0F54679}PrefabsEditable/Markers/EditableMarker.et" {
- {
-  coords 5301.293 39.53 11382.395
-  m_sImageSet "{1228936E5DB30403}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor.imageset"
-  m_sImageSetGlow "{D1BFDF90DD7A4E01}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor-outline.imageset"
-  m_sQuadName "undefined"
-  m_bVisibleForEmptyFaction 1
-  m_iZOrder 1
-  m_bShowForAnyFaction 1
- }
- {
-  coords 4828.805 39.595 11571.43
-  angleY 0
-  m_sImageSet "{7CD99D22C7AE8195}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor.imageset"
-  m_sImageSetGlow "{B9356E7B2E974DCD}UI/Textures/GroupManagement/FlagIcons/GroupFlagsOpfor-outline.imageset"
-  m_sQuadName "undefined"
-  m_bVisibleForEmptyFaction 1
-  m_iZOrder 1
-  m_bShowForAnyFaction 1
- }
+PS_ManualMarker : "{CD85ADE9E0F54679}PrefabsEditable/Markers/EditableMarker.et" {
+ coords 5301.293 39.53 11382.395
+ m_sImageSet "{1228936E5DB30403}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor.imageset"
+ m_sImageSetGlow "{D1BFDF90DD7A4E01}UI/Textures/GroupManagement/FlagIcons/GroupFlagsBlufor-outline.imageset"
+ m_sQuadName "undefined"
+ m_bVisibleForEmptyFaction 1
+ m_iZOrder 1
+ m_bShowForAnyFaction 1
 }
