@@ -70,6 +70,7 @@ class GRAY_RouletteManager : GenericEntity
 	void GRAY_RouletteManager(IEntitySource src, IEntity parent)
 	{
 		m_instance = this;
+		random.SetSeed(System.GetUnixTime());
 		SetEventMask(EntityEvent.INIT);
 	}
 	
