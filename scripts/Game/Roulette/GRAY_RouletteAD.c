@@ -232,7 +232,7 @@ class GRAY_RouletteAD
 	{
 		// Objective
 		PS_ManualMarker marker = rouletteManager.SpawnMarker(objective, "{E23427CAC80DA8B7}UI/Textures/Icons/icons_mapMarkersUI.imageset", "circle-2");
-		marker.SetSize(size * 2);
+		marker.SetSize(size * 4);
 		marker.SetColor(Color.Red);
 
 		// Spawns
