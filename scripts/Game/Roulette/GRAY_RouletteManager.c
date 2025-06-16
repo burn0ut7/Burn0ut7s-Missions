@@ -47,7 +47,10 @@ class GRAY_RouletteManager : GenericEntity
     int m_maxBuildingDistance;
 	
 	[Attribute(defvalue: "200", uiwidget: UIWidgets.EditBox, desc: "The distance to search for buildings within", category: "Advanced")]
-    int m_searchDistance;
+    int m_searchDistance;	
+	
+	[Attribute(defvalue: "500 0 500", uiwidget: UIWidgets.EditBox, desc: "Buffer distance from the edge of the map for objectives/spawns", category: "Advanced")]
+    vector m_mapEdgeBuffer;
 	
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourceNamePicker, desc: "Blacklist of buildings to not consider", category: "Advanced")]
     ref array<ResourceName> m_buildingBlackList;
@@ -393,11 +396,10 @@ class GRAY_RouletteManager : GenericEntity
 			float directionX = Math.Cos(angle);
 	    	float directionZ = Math.Sin(angle);
 			
-			vector buffer = Vector(500,0,500);
-			vector worldSize = GetGame().GetMapManager().Size() - buffer;
+			vector worldSize = GetGame().GetMapManager().Size() - m_mapEdgeBuffer;
 			vector searchPosition = Vector(directionX, 0, directionZ) * distance + startPosition;
 			
-			if(!IsVectorIn2DBounds(searchPosition, buffer, worldSize))
+			if(!IsVectorIn2DBounds(searchPosition, m_mapEdgeBuffer, worldSize))
 				return false;
 			
 			if(!m_ignoreWaterCheck)
@@ -408,7 +410,7 @@ class GRAY_RouletteManager : GenericEntity
 			}
 
 			bool found = FindEmptyPosition(outPosition, searchPosition, searchRadius, searchSize);
-			if(found && IsVectorIn2DBounds(outPosition, buffer, worldSize))
+			if(found && IsVectorIn2DBounds(outPosition, m_mapEdgeBuffer, worldSize))
 				return true;
 
 			distance += stepDistance;
@@ -423,10 +425,9 @@ class GRAY_RouletteManager : GenericEntity
 		Print("GRAY_RouletteManager.FindCaptureObjective");
 		BaseWorld world = GetGame().GetWorld();
 		
-		vector buffer = Vector(500,0,500);
-		vector worldSize = GetGame().GetMapManager().Size() - buffer;
+		vector worldSize = GetGame().GetMapManager().Size() - m_mapEdgeBuffer;
 
-		float randomX = random.RandFloatXY(buffer[0], worldSize[0]);
+		float randomX = random.RandFloatXY(m_mapEdgeBuffer[0], worldSize[0]);
 		float randomZ = random.RandFloatXY(worldSize[2], worldSize[2]);	
 		float randomY = world.GetSurfaceY(randomX, randomZ);
 		vector randomPosition = Vector(randomX, randomY, randomZ);

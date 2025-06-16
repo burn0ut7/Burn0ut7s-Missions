@@ -18,6 +18,7 @@ GenericEntity : "{A00C4A23CD89F76E}Prefabs/Roulette/Roulette_GameMode_Company.et
     }
    }
    m_minAoLimitLength 1500
+   m_mapEdgeBuffer 350 0 350
   }
  }
 }

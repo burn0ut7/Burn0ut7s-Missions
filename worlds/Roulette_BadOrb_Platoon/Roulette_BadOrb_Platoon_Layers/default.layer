@@ -18,6 +18,7 @@ GenericEntity : "{5AC3CAD5128E8440}Prefabs/Roulette/Roulette_GameMode_Platoon.et
     }
    }
    m_minAoLimitLength 1300
+   m_mapEdgeBuffer 350 0 350
   }
  }
 }
