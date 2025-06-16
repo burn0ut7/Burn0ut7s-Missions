@@ -342,7 +342,7 @@ GRAY_RouletteManager {
   GRAY_RouletteTeamData "{648E0394C8434058}" {
    name "US Army Modern"
    factionKey "RHS_USAF"
-   strength 1.25
+   strength 1.3
    versusBlacklist {
     "US"
    }
@@ -1363,7 +1363,7 @@ GRAY_RouletteManager {
   GRAY_RouletteTeamData "{656C215586A9DD4A}" {
    name "Modern RU"
    factionKey "RHS_AFRF"
-   strength 1.2
+   strength 1.3
    squadCallsignsOnly 1
    versusBlacklist {
     "RU" "USSR"

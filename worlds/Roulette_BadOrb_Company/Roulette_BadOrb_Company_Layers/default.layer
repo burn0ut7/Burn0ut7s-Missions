@@ -1,0 +1,23 @@
+GenericEntity : "{A00C4A23CD89F76E}Prefabs/Roulette/Roulette_GameMode_Company.et" {
+ coords 0 0 0
+ {
+  GRAY_RouletteManager {
+   ID "64B8FA30ED384DE6"
+   m_breifings {
+    GRAY_RouletteBriefingData "{648D13AF4F7A2823}" {
+     description "I. Situation:"\
+     "Bad Orb, 2020."\
+     "Local Time: Random(Check top right)"\
+     "Weather: Random"\
+     ""\
+     "Ia. Friendly Forces:"\
+     "%3"\
+     ""\
+     "Ib. Enemy Forces:"\
+     "%4 (Marked)"
+    }
+   }
+   m_minAoLimitLength 1500
+  }
+ }
+}

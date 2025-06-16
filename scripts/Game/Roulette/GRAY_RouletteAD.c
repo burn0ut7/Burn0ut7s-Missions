@@ -95,7 +95,7 @@ class GRAY_RouletteAD
 			Print("GRAY_RouletteManager.ScenarioCapture - no defender pos can be found");
 			return false;
 		}
-		
+
 		return true;
 	}
 	

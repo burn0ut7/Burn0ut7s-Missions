@@ -1,5 +1,5 @@
 GenericEntity : "{5AC3CAD5128E8440}Prefabs/Roulette/Roulette_GameMode_Platoon.et" {
- coords 6312.056 5.094 9663.389
+ coords 0 0 0
  {
   PS_GameModeCoop "64B8FC442B98F699" {
    ID "64B8FA30ED384DE2"

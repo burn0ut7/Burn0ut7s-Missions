@@ -387,22 +387,18 @@ class GRAY_RouletteManager : GenericEntity
 		float stepDistance = searchRadius * 2;
 		float distance = minDistance;
 		int count = 0;
-		vector buffer = Vector(500, 0, 500);
-		protected vector worldMin;
-		protected vector worldMax;
-		GetGame().GetWorld().GetBoundBox(worldMin, worldMax);
-		
+
 		while(count < 500 && distance < maxDistance)
 		{
 			float directionX = Math.Cos(angle);
 	    	float directionZ = Math.Sin(angle);
+			
+			vector buffer = Vector(500,0,500);
+			vector worldSize = GetGame().GetMapManager().Size() - buffer;
 			vector searchPosition = Vector(directionX, 0, directionZ) * distance + startPosition;
-
-			if (searchPosition[0] < worldMin[0] + buffer[0] || searchPosition[0] > worldMax[0] - buffer[0] ||
-			searchPosition[2] < worldMin[2] + buffer[2] || searchPosition[2] > worldMax[2] - buffer[2])
-			{
-			    return false;
-			}
+			
+			if(!IsVectorIn2DBounds(searchPosition, buffer, worldSize))
+				return false;
 			
 			if(!m_ignoreWaterCheck)
 			{
@@ -412,7 +408,7 @@ class GRAY_RouletteManager : GenericEntity
 			}
 
 			bool found = FindEmptyPosition(outPosition, searchPosition, searchRadius, searchSize);
-			if(found)
+			if(found && IsVectorIn2DBounds(outPosition, buffer, worldSize))
 				return true;
 
 			distance += stepDistance;
@@ -427,12 +423,11 @@ class GRAY_RouletteManager : GenericEntity
 		Print("GRAY_RouletteManager.FindCaptureObjective");
 		BaseWorld world = GetGame().GetWorld();
 		
-		protected vector worldMin;
-		protected vector worldMax;
-		world.GetBoundBox(worldMin, worldMax);
+		vector buffer = Vector(500,0,500);
+		vector worldSize = GetGame().GetMapManager().Size() - buffer;
 
-		float randomX = random.RandFloatXY(worldMin[0], worldMax[0]);
-		float randomZ = random.RandFloatXY(worldMin[2], worldMax[2]);	
+		float randomX = random.RandFloatXY(buffer[0], worldSize[0]);
+		float randomZ = random.RandFloatXY(worldSize[2], worldSize[2]);	
 		float randomY = world.GetSurfaceY(randomX, randomZ);
 		vector randomPosition = Vector(randomX, randomY, randomZ);
 		
@@ -533,7 +528,7 @@ class GRAY_RouletteManager : GenericEntity
 		}
 
 		BaseWorld world = GetGame().GetWorld();
-
+		
 		//--- Precalculate vars
 		float cellW = sphereRadius * Math.Sqrt(3);
 		float cellH = sphereRadius * 2;
@@ -686,4 +681,16 @@ class GRAY_RouletteManager : GenericEntity
 		IEntity entity = GetGame().SpawnEntityPrefab(Resource.Load(prefab), null, spawnParams);
 		return entity;
 	}
+	
+	bool IsVectorIn2DBounds(vector testVector, vector min, vector max)
+    {
+		vector actualMin = Vector(Math.Min(min[0], max[0]), Math.Min(min[1], max[1]), 0);
+		vector actualMax = Vector(Math.Max(min[0], max[0]), Math.Max(min[1], max[1]), 0);
+		
+		bool isInBounds =
+			testVector[0] >= actualMin[0] && testVector[0] <= actualMax[0] && 
+			testVector[1] >= actualMin[1] && testVector[1] <= actualMax[1];
+		
+		return isInBounds;
+    }
 }
