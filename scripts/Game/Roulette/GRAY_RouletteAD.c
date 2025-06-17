@@ -86,7 +86,7 @@ class GRAY_RouletteAD
 		bool found = false;
 		while(!found && count < 100)
 		{
-			found = rouletteManager.FindEmptySpaceLine(spawnPosition, startPosition, 250, 12, minDistance, maxDistance);
+			found = rouletteManager.FindEmptySpaceLine(spawnPosition, startPosition, 250, 8, minDistance, maxDistance);
 			count++;
 		}
 		

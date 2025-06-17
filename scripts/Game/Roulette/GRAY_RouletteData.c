@@ -129,9 +129,6 @@ class GRAY_RouletteSquad
 {
 	[Attribute("", UIWidgets.ResourceNamePicker, desc: "Prefab to spawn in for this element.")]
 	protected ResourceName prefab;
-	
-	[Attribute("", UIWidgets.EditBox, desc: "How many players are ONLY in this element prefab above?")]
-	protected int playerCount;
 
 	ResourceName GetPrefab()
 	{
@@ -140,7 +137,10 @@ class GRAY_RouletteSquad
 	
 	int GetPlayerCount()
 	{
-		return playerCount;
+		array<ResourceName> characters;
+		Resource.Load(prefab).GetResource().ToBaseContainer().Get("m_aUnitPrefabSlots", characters);
+
+		return characters.Count();
 	}
 }
 

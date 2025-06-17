@@ -201,12 +201,23 @@ class GRAY_RouletteManager : GenericEntity
 		GetGame().GetCallqueue().CallLater(coverComp.SetPoints3D, 100, false, points);
 	}
 	
-	int SpawnTeam(out map<string, int> elementCounts, GRAY_RouletteTeamData team, vector position, int targetCount, int minCount = 1, vector offset = Vector(0,0,12))
+	int SpawnTeam(out map<string, int> elementCounts, GRAY_RouletteTeamData team, vector position, int targetCount, int minCount = 1, vector offset = Vector(-3,0,0))
 	{
 		array<ref array<GRAY_RouletteSquad>> prefabsToSpawnByCompany;
 		int finalCount = GetTeamPrefabs(prefabsToSpawnByCompany, elementCounts, team, targetCount, minCount);
 		int companyIndex = 0;
 		bool useCallsignOnly = team.GetCallsign();
+		int squadCount = 0;
+		float squadOffset = 1.75;
+		foreach (array<GRAY_RouletteSquad> companyPrefabs : prefabsToSpawnByCompany)
+		{
+			foreach (GRAY_RouletteSquad squad : companyPrefabs)
+			{
+				squadCount++;
+			}
+		}
+		
+		offset[2] = squadCount * squadOffset / 2;
 		
 		foreach (array<GRAY_RouletteSquad> companyPrefabs : prefabsToSpawnByCompany)
 		{
@@ -234,7 +245,11 @@ class GRAY_RouletteManager : GenericEntity
 				
 				ResourceName prefab = squad.GetPrefab();
 				SCR_AIGroup group = SCR_AIGroup.Cast(SpawnPrefab(prefab, position + offset));
-
+				
+				AIFormationComponent formation = AIFormationComponent.Cast(group.FindComponent(AIFormationComponent));
+				if(formation)
+					formation.SetFormation("line");
+				
 				if (GRAY_RoulettePlatoon.Cast(squad))
 				{
 					if(isFirstPlatoon)
@@ -254,7 +269,7 @@ class GRAY_RouletteManager : GenericEntity
 				SCR_CallsignGroupComponent callsignComponent = SCR_CallsignGroupComponent.Cast(group.FindComponent(SCR_CallsignGroupComponent));
 				GetGame().GetCallqueue().CallLater(callsignComponent.ReAssignGroupCallsign, 10, false, companyIndex, platoonIndex, squadIndex);
 				squadIndex++;
-				offset[2] = offset[2] - 2;
+				offset[2] = offset[2] - squadOffset;
 			}
 			
 			companyIndex++;
@@ -359,19 +374,10 @@ class GRAY_RouletteManager : GenericEntity
 			teamPool.RemoveItem(selected);
 			for (int z = 0; z < teamPool.Count(); z++)
 			{
-				ref GRAY_RouletteTeamData team = teamPool[z];
+				GRAY_RouletteTeamData team = teamPool[z];
 				FactionKey faction = team.GetFaction();
-				if(selected.GetFaction() == faction)
-				{
+				if(selected.GetFaction() == faction || blacklist.Contains(faction))
 					teamPool.RemoveItem(team);
-					continue;
-				}
-				
-				if(blacklist.Contains(faction))
-				{
-					teamPool.RemoveItem(team);
-					continue;
-				}
 			}
 			teams.Insert(selected);
 		}
